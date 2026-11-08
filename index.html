@@ -39,7 +39,10 @@ svg.i{width:18px;height:18px;flex:0 0 auto;stroke:currentColor;fill:none;stroke-
 
 .band .wrap{display:flex;align-items:center;min-height:58px;padding-block:12px}
 .band img{height:38px;width:auto;display:block}
-.view{animation:in .25s ease-out}
+.view.in-r{animation:slR .34s cubic-bezier(.2,.8,.2,1)}
+.view.in-l{animation:slL .34s cubic-bezier(.2,.8,.2,1)}
+@keyframes slR{from{opacity:0;transform:translateX(56px)}}
+@keyframes slL{from{opacity:0;transform:translateX(-56px)}}
 .ptitle{padding-block:6px 14px}
 .ptitle h1{font-size:26px;font-weight:800}
 .ptitle p{margin:4px 0 0;color:var(--muted);font-size:13.5px}
@@ -220,7 +223,10 @@ body.srch .hero .lead{margin-bottom:12px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary svg{color:var(--muted);transition:transform .2s}
 .faq details[open] summary svg{transform:rotate(180deg)}
-.faq details p{margin:0;padding:0 14px 14px;color:var(--muted);font-size:13.5px}
+.faq details p{margin:0;padding:0 14px;color:var(--muted);font-size:13.5px;overflow:hidden;transition:height .3s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.faq details p::after{content:"";display:block;height:14px}
+.faq details:not([open]) p{opacity:0}
+.faq details[open] p{opacity:1}
 
 /* ---------- buttons, nav, sheet ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:12px 14px;font-weight:700;text-decoration:none;color:var(--ink)}
@@ -547,6 +553,36 @@ body.srch .marq,body.srch .hero2 .pop{display:none}
 #v-tutorial .vacc{margin-top:12px}
 #v-tutorial .vnote{margin:16px 0 0}
 .btn.off{background:var(--surface-2);border-color:var(--line);color:#7d7472;cursor:not-allowed}
+
+/* logo merek */
+.lg{display:block;width:20px;height:20px;object-fit:contain;flex:0 0 auto}
+.lgt{width:22px;height:22px;border-radius:7px;background:#fff;display:grid;place-items:center}
+.lgt .lg{width:16px;height:16px}
+.soc a{padding:0 11px 0 6px}
+.btn.brand{background:#fff;border-color:#fff;color:#151313}
+.btn.brand:active{background:#EDE9E8}
+.fab{background:transparent!important;box-shadow:none!important;width:54px!important;height:54px!important}
+.fab .lg{width:54px;height:54px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.55))}
+@media (max-width:360px){.soc a{padding:0 6px}}
+/* transisi */
+.sheet{animation:shUp .38s cubic-bezier(.2,.85,.25,1)!important}
+@keyframes shUp{from{transform:translateY(100%)}}
+.sheet.closing{animation:shDown .28s cubic-bezier(.4,0,.8,.4) forwards!important}
+@keyframes shDown{to{transform:translateY(100%)}}
+.sheet-bg{animation:fade .3s ease!important}
+.sheet-bg.closing{animation:fadeOut .28s ease forwards!important}
+@keyframes fadeOut{to{opacity:0}}
+.rec{animation:in .28s ease-out}
+.grid .card,.hscroll .hcard{animation:in .3s ease-out both}
+.grid .card:nth-child(2),.hscroll .hcard:nth-child(2){animation-delay:.04s}
+.grid .card:nth-child(3),.hscroll .hcard:nth-child(3){animation-delay:.08s}
+.grid .card:nth-child(4),.hscroll .hcard:nth-child(4){animation-delay:.12s}
+.grid .card:nth-child(5),.hscroll .hcard:nth-child(5){animation-delay:.16s}
+.grid .card:nth-child(6),.hscroll .hcard:nth-child(6){animation-delay:.2s}
+#tbox .vacc{animation:in .3s ease-out}
+.vst .vin{transition:opacity .3s ease .05s,transform .3s ease .05s}
+.vst:not(.open) .vin{opacity:0;transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.view.in-r,.view.in-l,.sheet,.sheet.closing,.sheet-bg,.sheet-bg.closing,.rec,.grid .card,.hscroll .hcard,#tbox .vacc{animation:none!important}}
 </style>
 
 </head>
@@ -581,8 +617,8 @@ body.srch .marq,body.srch .hero2 .pop{display:none}
 
 <div id="splash" aria-hidden="true"><img src="logo.png" alt=""><span class="spbar"><i></i></span></div>
 <header class="band"><div class="wrap"><img src="logo.png" alt="RGR Ren's Garage"><nav class="soc" aria-label="Sosial media">
-  <a href="https://www.instagram.com/rgr_rensgarage" target="_blank" rel="noopener" id="lnkIG"><svg class="i"><use href="#i-cam"/></svg>Instagram</a>
-  <a href="https://www.tiktok.com/@rensgarage" target="_blank" rel="noopener" id="lnkTT"><svg class="i"><use href="#i-video"/></svg>TikTok</a>
+  <a href="https://www.instagram.com/rgr_rensgarage" target="_blank" rel="noopener" id="lnkIG"><span class="lgt" data-lg="ig"></span>Instagram</a>
+  <a href="https://www.tiktok.com/@rensgarage" target="_blank" rel="noopener" id="lnkTT"><span class="lgt" data-lg="tt"></span>TikTok</a>
 </nav></div></header>
 
 <!-- HOME -->
@@ -648,7 +684,7 @@ body.srch .marq,body.srch .hero2 .pop{display:none}
   <a class="nv" href="#tutorial" data-v="tutorial"><svg class="i"><use href="#i-tool"/></svg>Tutorial</a>
   <a class="nv" href="#katalog" data-v="katalog"><svg class="i"><use href="#i-grid"/></svg>Katalog</a>
 </nav>
-<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a>
+<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><span data-lg="wa"></span></a>
 
 <div class="sheet-bg" id="sheetBg" hidden></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sTitle" hidden></div>
@@ -664,6 +700,8 @@ const $ = id => document.getElementById(id);
 const ic = n => `<svg class="i"><use href="#${n}"/></svg>`;
 const RM = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
 const NOW = new Date().getFullYear();
+const LOGO = {"wa": "ic-whatsapp.png", "ig": "ic-instagram.png", "shp": "ic-shopee.png", "tt": "ic-tiktok.png"};
+const lg = (k,c="") => `<img class="lg ${c}" src="${LOGO[k]}" alt="" aria-hidden="true">`;
 const PHOTO = {"v2a": "v2-3.webp", "v2b": "v2-2.webp", "v2c": "v2-1.webp", "vespa": "v1-vespa.webp", "inj": "v1-injeksi.webp", "karbu": "v1-karbu.webp"};
 const IMGP = {"v1-karbu":[PHOTO.karbu],"v1-injeksi":[PHOTO.inj],"v1-vespa":[PHOTO.vespa],"v2-karbu":[PHOTO.v2c,PHOTO.v2b,PHOTO.v2a],"v2-injeksi":[PHOTO.v2c,PHOTO.v2b,PHOTO.v2a]};
 const TMAP = {"v1-karbu":"karbu","v1-injeksi":"injeksi","v1-vespa":"injeksi"};
@@ -850,7 +888,9 @@ let tk="karbu", openI=null;
 function setTut(k){ if(!TUT[k]) k="karbu"; tk=k; openI=null; renderTut(); }
 const NOTE={rec:`<div class="call tip">${ic("i-video")}<span><b>Wajib untuk garansi.</b> Rekaman ini harus berlanjut tanpa terpotong sampai Step 2 selesai.</span></div>`,
  warn:`<div class="call warn">${ic("i-alert")}<span><b>Jangan sampai terbalik.</b> Kalau + dan − tertukar, modul langsung korsleting.</span></div><div class="call tip">${ic("i-video")}<span><b>Wajib untuk garansi.</b> Tes ini harus terekam dalam satu video yang sama dengan unboxing, tanpa terpotong.</span></div>`};
+let animI=null;
 function renderTut(){
+  const ai=animI; animI=null;
   const T=TUT[tk], n=T.steps.length, done=Math.min(PROG[tk]||0,n);
   if(openI===null) openI = done<n ? done : -1;
   const keys=Object.keys(TUT);
@@ -859,7 +899,7 @@ function renderTut(){
   $("tprogbox").innerHTML=`<div class="tprog"><span class="pbar"><i style="width:${pct}%"></i></span><span>${done===n?"Semua step selesai":`${done} dari ${n} step selesai`}</span></div>`;
   $("tbox").innerHTML=`<div class="gbanner">${ic("i-shield")}<span><b>Syarat garansi:</b> rekam 1 video tanpa terpotong dari paket tersegel sampai tes modul ke aki (Step 1–2).</span></div>
   <div class="vacc">${T.steps.map(([t,d,note,conf],i)=>{
-    const st = i<done?"done":i===done?"cur":"lock", src=VIDEO[tk][i], isOpen=i===openI&&st!=="lock";
+    const st = i<done?"done":i===done?"cur":"lock", src=VIDEO[tk][i], isOpen=i===openI&&st!=="lock"&&i!==ai;
     return `<div class="vst ${st}${isOpen?" open":""}" data-i="${i}">
       <button class="vbar" type="button" aria-expanded="${isOpen}" ${st==="lock"?'aria-disabled="true"':""}><span class="vno">${st==="done"?ic("i-check"):st==="lock"?ic("i-lock"):""}Step ${i+1}</span><span class="vtt">${t}</span>${st==="lock"?"":ic("i-down")}</button>
       <div class="vbd"><div><div class="vin">
@@ -875,14 +915,17 @@ function renderTut(){
     </div>`}).join("")}</div>
   ${done===n?`<div class="tfin">${ic("i-check")}<div><b>Pemasangan selesai</b>Modul ${T.name} siap dipakai. Ada kendala? <a href="${wa("Halo Rens Garage, saya butuh bantuan pemasangan "+T.name+". Kendala saya: ")}" target="_blank" rel="noopener">Chat WhatsApp</a></div></div>`:""}
   ${done>0?`<button class="lnk treset" type="button">Ulangi dari Step 1</button>`:""}`;
+  if(ai!==null&&ai>=0){const el=$("tbox").querySelector(`.vst[data-i="${ai}"]`); if(el) requestAnimationFrame(()=>requestAnimationFrame(()=>{el.classList.add("open");el.querySelector(".vbar").setAttribute("aria-expanded",true)}));}
 }
 $("vpick").onclick=e=>{const b=e.target.closest(".vcard");if(b){history.replaceState(null,"","#tutorial-"+b.dataset.k);setTut(b.dataset.k)}};
 $("tbox").addEventListener("change",e=>{const c=e.target.closest(".cbx");if(c)c.closest(".vin").querySelector(".go").disabled=!c.checked});
 $("tbox").onclick=e=>{
   const b=e.target.closest(".vbar");
-  if(b){const v=b.closest(".vst"); if(v.classList.contains("lock")) return; const i=+v.dataset.i; openI = openI===i?-1:i; return renderTut();}
+  if(b){const v=b.closest(".vst"); if(v.classList.contains("lock")) return; const i=+v.dataset.i; openI = openI===i?-1:i;
+    $("tbox").querySelectorAll(".vst").forEach(x=>{const on=+x.dataset.i===openI; x.classList.toggle("open",on); x.querySelector(".vbar").setAttribute("aria-expanded",on); if(!on) x.querySelectorAll("video").forEach(vd=>vd.pause())});
+    return;}
   const g=e.target.closest(".go");
-  if(g&&!g.disabled){const i=+g.closest(".vst").dataset.i; PROG[tk]=Math.max(PROG[tk]||0,i+1); saveProg(); openI = i+1<TUT[tk].steps.length?i+1:-1; renderTut();
+  if(g&&!g.disabled){const i=+g.closest(".vst").dataset.i; PROG[tk]=Math.max(PROG[tk]||0,i+1); saveProg(); openI = i+1<TUT[tk].steps.length?i+1:-1; animI=openI; renderTut();
     const t=$("tbox").querySelector(openI>=0?`.vst[data-i="${openI}"]`:".tfin"); if(t) setTimeout(()=>t.scrollIntoView({behavior:RM()?"auto":"smooth",block:"start"}),120); return;}
   if(e.target.closest(".treset")){PROG[tk]=0; saveProg(); openI=null; renderTut();}
 };
@@ -914,19 +957,40 @@ function openSheet(id){
        :`<a class="list golink" href="${wa(`Halo Rens Garage, saya minta panduan pemasangan ${p.name} ${p.var}.`)}" target="_blank" rel="noopener"><span class="gi">${ic("i-tool")}</span><span><b>Panduan pasang</b><small>Minta via WhatsApp</small></span>${ic("i-right")}</a>`}
   </div>
   ${p.disc||p.soon?`<div class="scta one"><button class="btn off" type="button" disabled>${p.disc?"Sold out":"Belum tersedia"}</button></div>`
-   :`<div class="scta"><a class="btn shp" href="${p.shp||SHOPEE}" target="_blank" rel="noopener">${ic("i-bag")}Shopee</a><a class="btn ttk" href="${p.ttk||TIKTOK}" target="_blank" rel="noopener">${ic("i-video")}TikTok</a><a class="btn wa" href="${wa(msg)}" target="_blank" rel="noopener">${ic("i-chat")}WhatsApp</a></div>`}`;
+   :`<div class="scta"><a class="btn brand" href="${p.shp||SHOPEE}" target="_blank" rel="noopener">${lg("shp")}Shopee</a><a class="btn brand" href="${p.ttk||TIKTOK}" target="_blank" rel="noopener">${lg("tt")}TikTok</a><a class="btn brand" href="${wa(msg)}" target="_blank" rel="noopener">${lg("wa")}WhatsApp</a></div>`}`;
+  clearTimeout(shT);$("sheet").classList.remove("closing");$("sheetBg").classList.remove("closing");
   $("sheet").hidden=false;$("sheetBg").hidden=false;$("sheet").scrollTop=0;
   bindGallery();
   $("sx").onclick=closeSheet;$("sx").focus();
 }
-function closeSheet(){$("sheet").hidden=true;$("sheetBg").hidden=true;if(location.hash.startsWith("#p-"))history.replaceState(null,"","#"+view)}
+let shT=null;
+function hideSheet(){
+  const sh=$("sheet"),bg=$("sheetBg"); if(sh.hidden) return;
+  sh.querySelectorAll("video").forEach(v=>v.pause());
+  if(RM()){sh.hidden=true;bg.hidden=true;return}
+  sh.classList.add("closing"); bg.classList.add("closing");
+  clearTimeout(shT); shT=setTimeout(()=>{sh.hidden=true;bg.hidden=true;sh.classList.remove("closing");bg.classList.remove("closing")},280);
+}
+function closeSheet(){hideSheet();if(location.hash.startsWith("#p-"))history.replaceState(null,"","#"+view)}
 $("sheetBg").onclick=closeSheet;
 addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sheet").hidden)closeSheet()});
 
+/* ===== FAQ buka-tutup halus ===== */
+document.addEventListener("click",e=>{
+  const sm=e.target.closest(".faq summary"); if(!sm||RM()) return;
+  e.preventDefault(); const d=sm.parentElement, p=d.querySelector("p"); if(!p||d.dataset.busy) return; d.dataset.busy=1;
+  const done=()=>{p.style.height="";delete d.dataset.busy};
+  if(d.open){p.style.height=p.scrollHeight+"px";requestAnimationFrame(()=>{p.style.height="0px";p.style.opacity="0"});setTimeout(()=>{d.open=false;p.style.opacity="";done()},300)}
+  else{d.open=true;const h=p.scrollHeight;p.style.height="0px";requestAnimationFrame(()=>requestAnimationFrame(()=>{p.style.height=h+"px"}));setTimeout(done,320)}
+});
+
 /* ===== ROUTER ===== */
 const VIEWS=["home","tutorial","katalog"];
+let firstView=true;
 function setView(v){
-  const changed = v!==view; view=v; document.body.dataset.view=v;
+  const changed = v!==view, dir = VIEWS.indexOf(v)>VIEWS.indexOf(view) ? "in-r" : "in-l"; view=v; document.body.dataset.view=v;
+  if(changed && !firstView && !RM()){const el=$("v-"+v); el.classList.remove("in-r","in-l"); void el.offsetWidth; el.classList.add(dir); el.addEventListener("animationend",()=>el.classList.remove(dir),{once:true});}
+  firstView=false;
   VIEWS.forEach(x=>$("v-"+x).hidden=x!==v);
   document.querySelectorAll(".nv").forEach(a=>a.dataset.v===v?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   if(changed) scrollTo({top:0});
@@ -934,12 +998,13 @@ function setView(v){
 function route(){
   const h=location.hash.slice(1);
   if(h.startsWith("p-")) return openSheet(h.slice(2));
-  if(!$("sheet").hidden){$("sheet").hidden=true;$("sheetBg").hidden=true}
+  hideSheet();
   if(h.startsWith("tutorial-")){ setTut(h.slice(9)); return setView("tutorial"); }
   setView(VIEWS.includes(h)?h:"home");
 }
 addEventListener("hashchange",route);
 
+document.querySelectorAll("[data-lg]").forEach(el=>el.innerHTML=lg(el.dataset.lg));
 $("fab").href=wa("Halo Rens Garage, saya mau tanya modul untuk motor saya: ");
 $("waGuide").href=wa("Halo Rens Garage, saya minta panduan pemasangan untuk modul saya: ");
 $("waText").textContent="+62 896-0402-6713";

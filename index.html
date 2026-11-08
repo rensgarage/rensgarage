@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rens Garage · Rapid Fire</title>
+<meta name="description" content="Modul pengapian Rapid Fire dari Rens Garage. Cek modul yang cocok untuk motormu, lihat katalog, dan ikuti video cara pasang.">
+<meta name="theme-color" content="#0A0909">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:title" content="Rens Garage · Rapid Fire">
+<meta property="og:description" content="Cek modul Rapid Fire yang cocok untuk motormu.">
+<meta property="og:image" content="icon-192.png">
+<style>html,body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: full-black single theme, 3 pages (Home / Tutorial / Katalog) with a floating bottom menu like sistem Herista. Mobile column max 480px */
+:root{
+  --bg:#0A0909; --surface:#151313; --surface-2:#1E1B1B; --ink:#F5F1F0; --muted:#A29896; --line:#2A2525;
+  --accent:#F0362B; --accent-ink:#FF6B61; --accent-soft:rgba(240,54,43,.14);
+  --wa:#1FA855; --ok:#4ACB7C; --ok-soft:rgba(74,203,124,.12); --warn:#E8B04A; --warn-soft:rgba(232,176,74,.12);
+  --font:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{background:var(--bg);min-height:100%}
+body{margin:0 auto;max-width:480px;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums;padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:17;background:var(--bg)}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+svg.i{width:18px;height:18px;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+
+.band .wrap{display:flex;align-items:center;min-height:58px;padding-block:12px}
+.band img{height:38px;width:auto;display:block}
+.view{animation:in .25s ease-out}
+.ptitle{padding-block:6px 14px}
+.ptitle h1{font-size:26px;font-weight:800}
+.ptitle p{margin:4px 0 0;color:var(--muted);font-size:13.5px}
+
+/* ---------- HOME ---------- */
+.hero{position:relative;overflow:hidden;min-height:calc(100dvh - 58px - 120px - env(safe-area-inset-top,0px));padding-top:max(24px,calc((100dvh - 58px - 120px - 300px)/2));padding-bottom:10px;transition:padding-top .45s cubic-bezier(.2,.8,.2,1)}
+body.srch .hero{padding-top:10px}
+.hero h1{transition:font-size .35s ease}
+body.srch .hero h1{font-size:24px}
+body.srch .hero .lead{margin-bottom:12px}
+.hero>*{position:relative}
+.hero h1{font-size:34px;font-weight:800;line-height:1.05;text-align:center}
+.hero .lead{margin:8px auto 16px;color:var(--muted);font-size:13.5px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbar{display:flex;align-items:center;background:var(--surface-2);border:1px solid #3a3333;border-radius:16px;transition:border-color .15s,box-shadow .15s}
+.sbar:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.sbar>svg{margin-left:14px;color:var(--muted);width:20px;height:20px}
+.sbar input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:15px 10px;font-size:16px}
+.sbar input::placeholder{color:#7d7472}
+.sbar input::-webkit-search-cancel-button{display:none}
+.clr{border:0;background:#2e2929;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;margin-right:10px;color:var(--muted)}
+.pop{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center;justify-content:center}
+.pop span{font-size:12px;color:var(--muted);margin-right:2px}
+.pop button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:5px 11px;font-size:12.5px;font-weight:600}
+.lnk{border:0;background:none;color:var(--accent-ink);font-weight:600;font-size:13px;padding:6px;margin:4px auto 0;display:block;text-decoration:none;text-align:center}
+.res{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.rcount{font-size:12.5px;color:var(--muted)}
+.mres{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;animation:in .22s ease-out}
+.mres .top{width:100%;border:0;background:transparent;display:flex;align-items:center;gap:10px;padding:13px 14px;text-align:left}
+.mres .top .nm{flex:1;min-width:0}
+.mres .top b{display:block;font-weight:700;font-size:15px}
+.mres .top small{color:var(--muted);font-size:12.5px}
+.mres .top svg{color:var(--muted);transition:transform .2s}
+.mres[data-open="true"] .top svg{transform:rotate(180deg)}
+.tagf{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.t-fi{background:var(--ok-soft);color:var(--ok)}
+.t-k{background:var(--warn-soft);color:var(--warn)}
+.t-x{background:#2a2525;color:var(--muted)}
+.rec{border-top:1px solid var(--line);padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px}
+.rec .lab{font-size:12px;font-weight:600;color:var(--muted)}
+.ritem{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--surface-2);border-radius:14px;padding:8px 10px 8px 8px;text-align:left;width:100%}
+.ritem.best{border-color:rgba(240,54,43,.55);background:linear-gradient(90deg,rgba(240,54,43,.14),rgba(240,54,43,.03))}
+.ritem.disc{opacity:.72}
+.ritem .nm{flex:1;min-width:0}
+.ritem .nm b{display:block;font-size:14px;font-weight:700;line-height:1.3}
+.ritem .nm small{color:var(--muted);font-size:12px}
+.ritem .pr{font-weight:800;color:var(--accent-ink);font-size:14px;white-space:nowrap}
+.ritem.disc .pr{color:var(--warn);font-size:12px}
+.best-tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:#fff;border-radius:6px;padding:1px 6px;margin-bottom:3px}
+.thumb{width:52px;height:52px;border-radius:10px;background:radial-gradient(circle at 30% 20%,#3a3232 0,#0e0b0b 70%);display:grid;place-items:center;flex:0 0 auto;font-weight:800;font-size:15px;position:relative;padding:4px}
+.thumb img{width:100%;height:auto;border-radius:4px}
+.nores{background:var(--surface);border:1px dashed #3a3333;border-radius:18px;padding:16px 14px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:10px;align-items:center}
+.unsup{color:var(--muted);font-size:13px}
+.unsup a{color:var(--accent-ink);font-weight:600}
+.wz{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;animation:in .22s ease-out}
+.wz>b{font-size:16px}
+.steplab{font-size:11.5px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.opts button{border:1px solid #3a3333;background:var(--surface-2);border-radius:12px;padding:13px 6px;font-weight:700}
+.wz details summary{list-style:none;font-size:12.5px;color:var(--accent-ink);font-weight:600;cursor:pointer}
+.wz details summary::-webkit-details-marker{display:none}
+.wz details p,.wzn{margin:6px 0 0;font-size:12.5px;color:var(--muted)}
+.wzr .rec{border-top:0;padding:0}
+
+/* ---------- KATALOG ---------- */
+.chips2{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:12px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:600;white-space:nowrap;display:flex;gap:6px;align-items:center}
+.chip small{font-size:11.5px;font-weight:700;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.chip[aria-pressed="true"] small{color:#fff;opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{border:1px solid var(--line);background:var(--surface);border-radius:16px;overflow:hidden;padding:0;text-align:left;display:flex;flex-direction:column;transition:transform .15s}
+.card:active{transform:scale(.98)}
+.card .body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card .trow{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.card h3{font-size:14px;font-weight:700;line-height:1.3}
+.price{font-weight:800;font-size:16px;color:var(--accent-ink)}
+.price s{font-weight:500;font-size:11.5px;color:var(--muted);margin-left:4px}
+.tbd{font-size:12.5px;font-weight:600;color:var(--muted)}
+.vb{display:inline-block;background:var(--accent);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;white-space:nowrap;align-self:flex-start}
+.card.disc .vb{background:#3a3333}
+.art{aspect-ratio:1/1;max-width:100%;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2c2626 0,#0c0a0a 75%)}
+.art img{width:86%;height:auto;border-radius:8px;box-shadow:0 12px 24px rgba(0,0,0,.55)}
+.box{width:60%;aspect-ratio:1.5/1;border-radius:10px;background:linear-gradient(160deg,#2e2828,#0d0a0a);box-shadow:0 10px 22px rgba(0,0,0,.6),inset 0 1px 0 #4a4242;display:grid;place-items:center;position:relative}
+.box::after{content:"";position:absolute;left:12%;right:12%;bottom:15%;height:3px;border-radius:2px;background:var(--accent)}
+.box b{font-weight:800;font-size:24px}
+.card.disc .box{filter:grayscale(1);opacity:.7}
+.spill{position:absolute;top:8px;left:8px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent);color:#fff}
+.spill.off{background:var(--ink);color:#B4170F}
+.spill.lim{background:#1c1818;color:var(--warn);border:1px solid rgba(232,176,74,.45)}
+.ph{position:absolute;right:10px;bottom:7px;font-size:10px;color:#6f6664}
+
+/* ---------- TUTORIAL ---------- */
+.vpick{display:block}
+.tseg{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px}
+.tth{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:12px;background:var(--accent);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.tseg .vcard{position:relative;z-index:1;border:0;background:transparent;border-radius:12px;padding:10px 6px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1px}
+.tseg .vcard b{font-size:14px}
+.tseg .vcard small{font-size:11.5px;color:var(--muted);transition:color .2s}
+.tseg .vcard[aria-selected="true"] small{color:rgba(255,255,255,.85)}
+.vcard{border:1.5px solid var(--line);background:var(--surface);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;text-align:left;transition:border-color .15s,background .15s}
+.vcard img{width:100%;height:auto;border-radius:6px}
+.vcard b{font-size:14px}
+.vcard small{display:block;color:var(--muted);font-size:12px;font-weight:500}
+.vcard[aria-pressed="true"]{border-color:var(--accent);background:linear-gradient(180deg,rgba(240,54,43,.12),rgba(240,54,43,0))}
+.vnote{margin:8px 0 0;font-size:12px;color:var(--muted);text-align:center}
+.vnote a{color:var(--accent-ink);font-weight:600}
+.stepper{display:flex;align-items:center;margin:18px 0 12px}
+.dot{width:34px;height:34px;border-radius:50%;border:0;background:var(--surface-2);color:var(--muted);font-weight:800;font-size:13px;display:grid;place-items:center;flex:0 0 auto;position:relative;z-index:1;transition:background .2s,color .2s,transform .2s}
+.dot svg{width:16px;height:16px;stroke-width:3}
+.dot.done{background:var(--ok);color:#0A0909}
+.dot.cur{background:var(--accent);color:#fff;transform:scale(1.12);box-shadow:0 0 0 4px var(--accent-soft)}
+.bar{flex:1;height:3px;background:var(--surface-2);margin:0 -1px}
+.bar.done{background:var(--ok)}
+.scard{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;animation:in .25s ease-out}
+.scene-wrap{background:radial-gradient(circle at 30% 0%,#241e1e 0,#100e0e 80%);padding:14px 8px 8px;border-bottom:1px solid var(--line)}
+.scene{width:100%;height:auto;display:block}
+.scene .t-s{font-size:10px;fill:#A29896;font-weight:600;font-family:var(--font)}
+.scene .t-w{font-size:10px;fill:#EDE7E6;font-weight:700;font-family:var(--font)}
+.scene .t-r{font-size:11px;fill:#FF6B61;font-weight:800;font-family:var(--font)}
+.scene .t-b{font-size:11px;fill:#fff;font-weight:800;font-family:var(--font)}
+.scene .t-mod{font-size:8.5px;fill:#fff;font-weight:800;letter-spacing:.06em;font-family:var(--font)}
+.t-xs{font-size:8px;fill:#A29896;font-weight:600;font-family:var(--font)}
+.fl{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:2 10;stroke-linecap:round;opacity:.85;animation:flow 1.1s linear infinite}
+.fl-d{stroke:#7a5c00}
+@keyframes flow{to{stroke-dashoffset:-24}}
+.ring{fill:none;stroke:#F0362B;stroke-width:2.5;animation:ring 1.4s ease-in-out infinite}
+@keyframes ring{50%{stroke-opacity:.25}}
+.fire{animation:fire .5s ease-in-out infinite alternate;transform-origin:252px 48px}
+@keyframes fire{to{transform:scaleX(1.25);opacity:.7}}
+.waves path{animation:wave 1s ease-in-out infinite}
+.waves path+path{animation-delay:.25s}
+@keyframes wave{50%{opacity:.2}}
+.sbody{padding:16px;display:flex;flex-direction:column;gap:12px}
+.scount{font-size:12px;font-weight:700;color:var(--accent-ink);letter-spacing:.06em;text-transform:uppercase}
+.sbody h2{font-size:21px;font-weight:800;line-height:1.2;margin-top:-6px}
+.do{font-size:15.5px;line-height:1.55;margin:0}
+.do b{color:var(--accent-ink)}
+.route{display:flex;align-items:center;flex-wrap:wrap;gap:8px;background:var(--surface-2);border-radius:12px;padding:10px 12px;font-size:13.5px}
+.route svg{width:14px;height:14px;color:var(--accent-ink)}
+.swc{display:inline-block;width:26px;border-radius:3px;flex:0 0 auto}
+.sw-k{height:4px;background:#0E0C0C;box-shadow:0 0 0 1.5px #6E6464}
+.sw-b{height:7px;background:#0E0C0C;box-shadow:0 0 0 1.5px #6E6464}
+.sw-y{height:7px;background:#F2C200}
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.check li{display:flex;gap:8px;align-items:center;font-size:14px}
+.check svg{width:16px;height:16px;color:var(--ok);stroke-width:2.8}
+.helper{display:flex;flex-direction:column;gap:8px}
+.helper .lab2{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.pc{background:var(--surface-2);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:2px}
+.pc svg{width:100%;height:14px;margin-bottom:4px}
+.pc b{font-size:13px}
+.pc span{font-size:11.5px;color:var(--muted)}
+.cgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cc{background:var(--surface-2);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:3px}
+.cc svg{width:100%;height:auto}
+.cc b{font-size:12px}
+.cc p{margin:0;font-size:11px;color:var(--muted);line-height:1.4}
+.cc p b{color:var(--ink);font-size:inherit}
+.call{display:flex;gap:8px;align-items:flex-start;border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45}
+.call svg{width:16px;height:16px;margin-top:2px}
+.call.warn{background:rgba(240,54,43,.10);color:#FF8A82}
+.call.tip{background:var(--warn-soft);color:var(--warn)}
+.pager{display:grid;grid-template-columns:1fr 1.6fr;gap:8px;margin-top:12px}
+.pager .btn{padding:14px}
+.pager .btn[disabled]{opacity:.35;pointer-events:none}
+.fin{background:var(--ok-soft);border:1px solid rgba(74,203,124,.3);border-radius:20px;padding:20px 16px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center;animation:in .25s ease-out}
+.fin .big{width:56px;height:56px;border-radius:50%;background:var(--ok);color:#0A0909;display:grid;place-items:center}
+.fin .big svg{width:28px;height:28px;stroke-width:3}
+.fin h2{font-size:20px;font-weight:800}
+.fin p{margin:0;color:var(--muted);font-size:13.5px}
+.lt{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:22px 2px 8px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.faq details{border-top:1px solid var(--line)}
+.faq details:first-child{border-top:0}
+.faq summary{list-style:none;padding:13px 14px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{color:var(--muted);transition:transform .2s}
+.faq details[open] summary svg{transform:rotate(180deg)}
+.faq details p{margin:0;padding:0 14px 14px;color:var(--muted);font-size:13.5px}
+
+/* ---------- buttons, nav, sheet ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:12px 14px;font-weight:700;text-decoration:none;color:var(--ink)}
+.btn.red{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.shp{background:#EE4D2D;border-color:#EE4D2D;color:#fff}
+.btn.ttk{background:#fff;border-color:#fff;color:#111}
+.nav{position:fixed;left:16px;right:16px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:15;max-width:360px;margin:0 auto;background:rgba(30,26,26,.82);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border:1px solid rgba(255,255,255,.07);border-radius:28px;box-shadow:0 12px 30px -8px rgba(0,0,0,.7);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:6px 8px}
+.nv{border:0;background:transparent;height:54px;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;color:#8E8483;text-decoration:none;transition:color .15s,background .15s}
+.nv svg{width:22px;height:22px;stroke-width:1.9}
+.nv[aria-current="page"]{color:var(--ink);font-weight:700;background:rgba(240,54,43,.14)}
+.nv[aria-current="page"] svg{color:var(--accent-ink);stroke-width:2.3}
+.fab{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 16px));bottom:calc(98px + env(safe-area-inset-bottom,0px));z-index:15;width:52px;height:52px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(31,168,85,.7)}
+.fab svg{width:24px;height:24px}
+@media (min-width:480px){.fab{right:calc(50% - 240px + 16px)}}
+body[data-view="tutorial"] .fab{display:none}
+.sheet-bg{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.65);animation:fade .2s}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;z-index:41;background:var(--bg);border:1px solid var(--line);border-bottom:0;border-radius:22px 22px 0 0;max-height:92%;overflow-y:auto;animation:up .28s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{transform:translateY(40px);opacity:.5}}
+@keyframes fade{from{opacity:0}}
+.grab{width:40px;height:5px;border-radius:3px;background:rgba(255,255,255,.35);position:absolute;top:8px;left:50%;transform:translateX(-50%);z-index:2}
+.sheet .art{aspect-ratio:16/9}
+.sheet .art img{width:62%}
+.sx{position:absolute;top:12px;right:12px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:rgba(40,36,36,.9);display:grid;place-items:center}
+.sbd2{display:flex;flex-direction:column;gap:10px;padding-block:14px 8px}
+.shead{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.shead .trow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.shead h2{font-size:20px;font-weight:800;line-height:1.2}
+.vbadge{flex:0 0 auto;background:var(--accent);color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:8px;box-shadow:0 0 0 3px var(--accent-soft)}
+.fitline{display:flex;gap:6px;align-items:center;font-size:13px;font-weight:600}
+.fitline svg{color:var(--ok);width:16px;height:16px;stroke-width:2.6}
+.discnote{background:var(--warn-soft);color:var(--warn);border-radius:16px;padding:12px 14px;font-size:13px}
+.discnote b{display:block}
+.sblock{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.lab2{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.flist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px}
+.flist li{display:flex;gap:6px;align-items:flex-start;font-size:12.5px;line-height:1.35}
+.flist svg{width:14px;height:14px;color:var(--accent-ink);stroke-width:2.6;margin-top:1px}
+.kv{margin:0}
+.kv div{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;padding:11px 14px;border-top:1px solid var(--line);font-size:13.5px}
+.kv div:first-child{border-top:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:600}
+.golink{display:flex;align-items:center;gap:12px;padding:12px 14px;text-decoration:none;color:inherit}
+.golink .gi{width:40px;height:40px;border-radius:12px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;flex:0 0 auto}
+.golink b{display:block}
+.golink small{color:var(--muted)}
+.golink>svg{margin-left:auto;color:var(--muted)}
+.scta{position:sticky;bottom:0;background:rgba(10,9,9,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.scta .btn{padding:12px 6px;font-size:13px;gap:5px}
+.scta.one{grid-template-columns:1fr}
+footer{color:var(--muted);font-size:13px;text-align:center;padding-block:24px 0}
+footer a{color:var(--accent-ink);font-weight:600}
+@media (prefers-reduced-motion:reduce){.view,.scard,.fin,.mres,.wz,.sheet,.sheet-bg{animation:none}.fl,.ring,.fire,.waves path{animation:none}*{transition:none!important}}
+
+/* foto per langkah */
+.vis{position:relative;min-height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px 14px;background:radial-gradient(circle at 50% 35%,#2a2323 0,#0f0d0d 75%);border-bottom:1px solid var(--line)}
+.vis .modph{width:92%;border-radius:10px;box-shadow:0 14px 30px rgba(0,0,0,.6)}
+.vis .modsm{width:62%;border-radius:8px;box-shadow:0 10px 22px rgba(0,0,0,.6)}
+.wires{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.wchip{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 11px;font-size:12.5px;font-weight:700;animation:pop .4s ease-out both}
+.wchip:nth-child(2){animation-delay:.15s}.wchip:nth-child(3){animation-delay:.3s}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.95)}}
+.vline{width:6px;height:46px;border-radius:3px;background:repeating-linear-gradient(180deg,#0E0C0C 0 8px,#3b3434 8px 12px);background-size:6px 24px;box-shadow:0 0 0 1.5px #6E6464;animation:vflow .8s linear infinite;position:relative}
+.vline.y{background:repeating-linear-gradient(180deg,#F2C200 0 8px,#8a6e00 8px 12px);background-size:6px 24px;box-shadow:none}
+@keyframes vflow{to{background-position:0 24px}}
+.vtag{position:absolute;left:14px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:11.5px;font-weight:700;color:#EDE7E6;background:#1c1818;border:1px solid #3a3434;border-radius:6px;padding:2px 7px}
+.cable{position:relative;width:86%;height:16px;border-radius:8px;background:repeating-linear-gradient(115deg,#1F6FD1 0 10px,#fff 10px 14px)}
+.cable i{position:absolute;left:50%;top:-5px;transform:translateX(-50%);width:34px;height:26px;border-radius:5px;background:#2b2626;border:1px solid #4a4343;box-shadow:0 0 0 4px rgba(240,54,43,.25);animation:pulse 1.4s ease-in-out infinite}
+.vcap{font-size:12px;color:var(--muted);font-weight:600;text-align:center}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(240,54,43,0)}}
+.tile{background:#EEEAE9;border-radius:16px;padding:10px;display:grid;place-items:center;position:relative}
+.tile img{width:100%;height:auto;display:block}
+.flow{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:center;gap:6px;width:100%}
+.flow .tile{aspect-ratio:1/1}
+.flow .tile img{max-height:100%;width:auto;max-width:100%}
+.arr{height:6px;border-radius:3px;background:repeating-linear-gradient(90deg,#EDE7E6 0 6px,transparent 6px 12px);background-size:24px 6px;animation:hflow .7s linear infinite}
+@keyframes hflow{to{background-position:24px 0}}
+.flab{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);gap:6px;width:100%;text-align:center;font-size:12px;font-weight:700;margin-top:-6px}
+.flab small{display:block;font-weight:500;color:var(--muted);font-size:11px}
+.ringp{position:absolute;border-radius:50%;border:3px solid var(--accent);animation:ringp 1.3s ease-out infinite;pointer-events:none}
+@keyframes ringp{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.4);opacity:0}}
+.badge-on{position:absolute;font-size:11px;font-weight:800;background:var(--accent);color:#fff;border-radius:999px;padding:3px 9px;box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.testrow{display:flex;align-items:center;justify-content:center;gap:18px;width:100%}
+.testrow .tile{width:52%}
+.snd{display:flex;gap:6px;align-items:center}
+.snd span{width:6px;border-radius:3px;background:var(--accent-ink);animation:eq .6s ease-in-out infinite alternate}
+.snd span:nth-child(1){height:18px}.snd span:nth-child(2){height:34px;animation-delay:.15s}.snd span:nth-child(3){height:50px;animation-delay:.3s}.snd span:nth-child(4){height:30px;animation-delay:.45s}
+@keyframes eq{to{transform:scaleY(.35)}}
+.coilv{width:100%;display:flex;flex-direction:column;gap:10px;align-items:center}
+.coilv .tile{width:80%;background:#fff}
+.ctabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.ctabs button{border:1px solid #3a3333;background:rgba(255,255,255,.04);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.ctabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.cdesc{font-size:13px;text-align:center;color:#D8D0CE;margin:0;max-width:34ch}
+.cdesc b{color:var(--accent-ink)}
+.vis .scene{width:100%}
+@media (prefers-reduced-motion:reduce){.wchip,.vline,.arr,.ringp,.snd span,.cable i{animation:none}}
+
+/* wiring diagram */
+.dgsheet{margin-top:16px;border-radius:12px;overflow:hidden;box-shadow:0 14px 34px -14px rgba(0,0,0,.8)}
+.wd{display:block;width:100%;height:auto}
+.wd-h{font:800 13px var(--font);fill:#151313;letter-spacing:.08em}
+.wd-b{font:800 9.5px var(--font);fill:#151313;letter-spacing:.04em}
+.wd-c{font:600 9px var(--font);fill:#6E6464}
+.wd-r{font:800 9.5px var(--font);fill:#D61E15}
+.wd-p{font:800 10px var(--font);fill:#A29896}
+.wd-mw{font:800 11px var(--font);fill:#fff;letter-spacing:.06em}
+.wd-ms{font:700 8px var(--font);fill:#A29896;letter-spacing:.06em}
+.wd-cn{font:800 11px var(--font);fill:#fff}
+.wd .w{transition:opacity .25s}
+.wd[data-hl="1"] .w:not(.w1),.wd[data-hl="2"] .w:not(.w2),.wd[data-hl="3"] .w:not(.w3){opacity:.12}
+.wd .co{transition:opacity .25s}
+.hint{margin:8px 2px 0;font-size:12px;color:var(--muted);text-align:center}
+.ctab .ch,.ctab .cr{display:grid;grid-template-columns:30px minmax(0,1fr) minmax(0,1.25fr);gap:10px;align-items:start;padding:10px 12px}
+.ctab .ch{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface-2)}
+.ctab .cr{width:100%;border:0;border-top:1px solid var(--line);background:transparent;text-align:left;font-size:13px}
+.ctab .cr[aria-pressed="true"]{background:var(--accent-soft)}
+.ctab .cr b{display:block;font-weight:700}
+.ctab .cr small{display:block;color:var(--muted);font-size:11.5px;line-height:1.35;margin-top:2px}
+.ctab .cr .swc{margin-bottom:5px}
+.cn{width:24px;height:24px;border-radius:50%;background:#E3241B;color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
+.order{list-style:none;margin:0;padding:4px 0}
+.order li{display:flex;gap:10px;padding:9px 14px;font-size:13.5px;line-height:1.45}
+.on{width:22px;height:22px;border-radius:6px;background:var(--surface-2);color:var(--muted);font-weight:800;font-size:12px;display:grid;place-items:center;flex:0 0 auto}
+.order b{color:var(--ink)}
+.order .ref{color:#FF6B61}
+.rtab .rr{display:grid;grid-template-columns:44px 74px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);font-size:13px}
+.rtab .rr:first-child{border-top:0}
+.rtab .rr span:nth-child(3){color:var(--muted)}
+.rtab code{font:700 11.5px ui-monospace,Menlo,monospace;color:var(--ink);background:var(--surface-2);border-radius:5px;padding:2px 6px}
+.pcab{height:10px;border-radius:5px;background:repeating-linear-gradient(115deg,var(--a) 0 7px,var(--b) 7px 10px)}
+.cgrid2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cgrid2 figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cgrid2 img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#fff;display:block}
+.cgrid2 figcaption{padding:8px;font-size:11px;color:var(--muted);line-height:1.35}
+.cgrid2 figcaption b{display:block;color:var(--ink);font-size:12px;margin-bottom:2px}
+
+/* tutorial video dropdown */
+.vacc{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.vst{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s;scroll-margin-top:12px}
+.vst.open{border-color:rgba(240,54,43,.55)}
+.vbar{width:100%;border:0;background:transparent;display:flex;align-items:center;gap:12px;padding:15px 14px;text-align:left}
+.vno{flex:0 0 auto;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;background:var(--surface-2);color:var(--muted);border-radius:8px;padding:5px 9px;transition:background .2s,color .2s}
+.vst.open .vno{background:var(--accent);color:#fff}
+.vtt{flex:1;min-width:0;font-weight:700;font-size:14.5px;line-height:1.3}
+.vbar>svg{color:var(--muted);transition:transform .25s}
+.vst.open .vbar>svg{transform:rotate(180deg)}
+.vbd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s cubic-bezier(.2,.8,.2,1)}
+.vst.open .vbd{grid-template-rows:1fr}
+.vbd>div{overflow:hidden;min-height:0}
+.vin{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+.vplayer{width:100%;aspect-ratio:9/16;max-height:68vh;border-radius:12px;background:#000;display:block;object-fit:contain}
+.vph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:radial-gradient(circle at 50% 40%,#231d1d 0,#0b0909 75%);border:1px dashed #3a3333;color:var(--muted)}
+.vph b{color:var(--ink);font-size:15px;margin-top:8px}
+.vph small{font-size:12.5px}
+.vplay{width:64px;height:64px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(240,54,43,.8)}
+.vplay svg{width:26px;height:26px;fill:#fff;stroke:none;margin-left:4px}
+.vdesc{margin:0;font-size:14px;color:#D8D0CE}
+.vnext{border:0;background:var(--surface-2);color:var(--ink);border-radius:999px;padding:12px 14px;font-weight:700;display:flex;gap:6px;align-items:center;justify-content:center;text-decoration:none}
+.vnext svg{width:16px;height:16px}
+.vnext.wa{background:var(--wa);color:#fff}
+
+/* home: fitur berjalan, glow, trust */
+.marq{position:relative;overflow:hidden;margin:0 0 16px;-webkit-mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.mtrack{display:flex;align-items:center;gap:14px;width:max-content;animation:marq 22s linear infinite}
+.mtrack span{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#CFC6C4;white-space:nowrap}
+.mtrack i{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+@keyframes marq{to{transform:translateX(calc(-50% - 7px))}}
+.sglow{position:relative}
+.sglow::before{content:"";position:absolute;left:8%;right:8%;top:-30%;bottom:-40%;background:radial-gradient(ellipse at center,rgba(240,54,43,.45),rgba(240,54,43,0) 70%);filter:blur(20px);z-index:0;pointer-events:none;animation:glow 4s ease-in-out infinite}
+.sglow .sbar{position:relative;z-index:1}
+@keyframes glow{50%{opacity:.55}}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02);padding:12px 4px}
+.trust div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px;padding:0 6px}
+.trust div+div{border-left:1px solid var(--line)}
+.trust b{font-size:15px;font-weight:800}
+.trust .star{color:#F2C200}
+.trust small{font-size:11.5px;color:var(--muted)}
+body.srch .marq,body.srch .trust{display:none}
+@media (prefers-reduced-motion:reduce){.mtrack,.sglow::before{animation:none}}
+
+/* home gaya app */
+.hpanel{margin-top:6px;background:linear-gradient(120deg,#B8140D 0%,#F0362B 62%,#FF6A3D 100%);border-radius:22px;padding:18px 14px 12px;display:flex;flex-direction:column;gap:10px;box-shadow:0 16px 30px -16px rgba(240,54,43,.9);position:relative;overflow:hidden;transition:padding .3s}
+.hpanel::after{content:"";position:absolute;right:-30px;top:-30px;width:130px;height:130px;opacity:.12;background:repeating-conic-gradient(#fff 0 25%,transparent 0 50%) 0 0/18px 18px;transform:rotate(-14deg);-webkit-mask:radial-gradient(circle,#000 35%,transparent 70%);mask:radial-gradient(circle,#000 35%,transparent 70%);pointer-events:none}
+.hpanel>*{position:relative;z-index:1}
+.hpanel h1{font-size:26px;font-weight:800;color:#fff;line-height:1.1}
+.hpanel p{margin:-4px 0 2px;color:rgba(255,255,255,.9);font-size:13.5px}
+.hpanel .sbar{background:#fff;border:0;box-shadow:0 8px 18px -10px rgba(0,0,0,.6)}
+.hpanel .sbar:focus-within{box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.hpanel .sbar>svg{color:#8A7F7D}
+.hpanel .sbar input{color:#151313}
+.hpanel .sbar input::placeholder{color:#9A908E}
+.hpanel .clr{background:#F0ECEB;color:#5A5251}
+.ostats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:rgba(255,255,255,.16);border-radius:14px;padding:9px 0}
+.ostat{display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff;padding:0 6px}
+.ostat+.ostat{border-left:1px solid rgba(255,255,255,.3)}
+.ostat b{font-size:16px;font-weight:800;line-height:1.25}
+.ostat span{font-size:11.5px;opacity:.9}
+body.srch .ostats,body.srch #hmore{display:none}
+#hmore{display:flex;flex-direction:column;gap:22px;margin-top:18px}
+.qa{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.qi{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink);text-decoration:none;padding:0;margin:0}
+.qi span{width:56px;height:56px;border-radius:18px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent-ink);transition:transform .15s}
+.qi span.g{color:var(--wa)}
+.qi span svg{width:24px;height:24px}
+.qi:active span{transform:scale(.94)}
+.hs{display:flex;flex-direction:column;gap:10px}
+.hsh{display:flex;align-items:baseline;justify-content:space-between}
+.hsh h2{font-size:17px;font-weight:800}
+.hsh a{font-size:13px;font-weight:600;color:var(--accent-ink);text-decoration:none}
+.hs .pop{justify-content:flex-start;margin-top:0}
+.hs .pop button{background:var(--surface);padding:8px 13px;font-size:13px}
+.hscroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;scrollbar-width:none;margin:0 -16px;padding:0 16px 4px}
+.hscroll::after{content:"";flex:0 0 6px}
+.hscroll::-webkit-scrollbar{display:none}
+.hcard{flex:0 0 150px;scroll-snap-align:start;border:1px solid var(--line);background:var(--surface);border-radius:16px;overflow:hidden;padding:0;text-align:left;display:flex;flex-direction:column}
+.hcard .art{aspect-ratio:4/3}
+.hcard .art img{width:84%}
+.hcard .box{width:58%}
+.hcard .box b{font-size:18px}
+.hcard .body{padding:9px 10px 11px;display:flex;flex-direction:column;gap:4px}
+.hcard h3{font-size:13px;font-weight:700}
+.hcard .price{font-size:14px}
+.hcard .tbd{font-size:11.5px}
+.flist2{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.fi{display:flex;gap:12px;align-items:center;padding:11px 14px;border-top:1px solid var(--line)}
+.fi:first-child{border-top:0}
+.fi>span{width:38px;height:38px;border-radius:12px;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;flex:0 0 auto}
+.fi b{display:block;font-size:14px}
+.fi small{color:var(--muted);font-size:12.5px}
+
+
+.hero2{min-height:0!important;padding:22px 14px 16px!important;margin-top:6px;background:var(--surface);border:1px solid #2E2828;border-radius:20px;position:relative;z-index:1;box-shadow:0 18px 36px -16px rgba(0,0,0,.85)}
+.hero2 .sglow::before{display:none}
+/* band merah ala sistem Herista */
+.band{background:var(--bg)}
+body::before{background:var(--bg)}
+#v-home{position:relative;padding-top:6px}
+.hero2 .sbar{background:#FFFFFF;border-color:#FFFFFF}
+.hero2 .sbar:focus-within{border-color:#fff;box-shadow:0 0 0 4px rgba(240,54,43,.45)}
+.hero2 .sbar>svg{color:#8A7F7D}
+.hero2 .sbar input{color:#151313}
+.hero2 .sbar input::placeholder{color:#9A908E}
+.hero2 .clr{background:#F0ECEB;color:#5A5251}
+#v-home .hero2{margin-top:0}
+
+#v-home>*{position:relative;z-index:1}
+body.srch .hero2{padding-top:16px!important}
+body.srch .marq,body.srch .hero2 .pop{display:none}
+#hmore .trust{margin-top:0}
+
+.hero2 .sglow{margin-bottom:0}
+#hmore{gap:26px;margin-top:26px}
+.hcard .price s{display:block;margin:2px 0 0}
+.faq details p a{color:var(--accent-ink);font-weight:600}
+.faq details p b{color:var(--ink)}
+.gbanner{display:flex;gap:10px;align-items:flex-start;margin-top:14px;background:var(--warn-soft);border:1px solid rgba(232,176,74,.35);color:var(--warn);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.45}
+.gbanner svg{width:20px;height:20px;flex:0 0 auto;margin-top:1px}
+.gbanner b{display:block;font-size:14px;color:#F5D08A}
+.vdesc b{color:var(--ink)}
+.call b{color:inherit}
+
+.tprog{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12px;font-weight:600;color:var(--muted)}
+.tprog .pbar{flex:1;height:6px;border-radius:3px;background:var(--surface-2);overflow:hidden}
+.tprog .pbar i{display:block;height:100%;background:var(--ok);border-radius:3px;transition:width .35s}
+.vno{display:inline-flex;align-items:center;gap:4px}
+.vno svg{width:13px;height:13px;stroke-width:2.6}
+.vst.cur .vno{background:var(--accent);color:#fff}
+.vst.done .vno{background:var(--ok-soft);color:var(--ok)}
+.vst.lock{opacity:.45}
+.vst.lock .vbar{cursor:not-allowed}
+.vst.done:not(.open) .vtt{color:var(--muted)}
+.conf{display:flex;gap:10px;align-items:flex-start;background:var(--surface-2);border:1px solid #3a3333;border-radius:12px;padding:12px;font-size:13.5px;font-weight:600;cursor:pointer}
+.conf input{width:20px;height:20px;margin:0;flex:0 0 auto;accent-color:#4ACB7C;cursor:pointer}
+.conf:has(input:checked){border-color:rgba(74,203,124,.5);background:var(--ok-soft)}
+.vnext.go{background:var(--accent);color:#fff}
+.vnext.go[disabled]{background:var(--surface-2);color:#6f6664;cursor:not-allowed}
+.cdone{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--ok)}
+.cdone svg{width:16px;height:16px;stroke-width:2.8}
+.tfin{display:flex;gap:10px;align-items:flex-start;margin-top:12px;background:var(--ok-soft);border:1px solid rgba(74,203,124,.35);color:var(--ok);border-radius:14px;padding:12px 14px;font-size:13px}
+.tfin svg{width:20px;height:20px;stroke-width:3;flex:0 0 auto}
+.tfin b{display:block;font-size:14px}
+.tfin a{color:var(--ok);font-weight:700}
+.treset{margin-top:10px}
+
+.art.full{aspect-ratio:1/1!important;background:#111}
+.art.full img{width:100%!important;height:100%;object-fit:cover;border-radius:0;box-shadow:none}
+.card.disc .art.full img{filter:none}
+.thumb.ph1{padding:0;overflow:hidden}
+.thumb.ph1 img{width:100%;height:100%;object-fit:cover;border-radius:0}
+.gal{position:relative;background:#111}
+.gtrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.gtrack::-webkit-scrollbar{display:none}
+.gtrack img{flex:0 0 100%;width:100%;aspect-ratio:1/1;object-fit:cover;scroll-snap-align:start;display:block}
+.gal .spill{z-index:2}
+.gdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px}
+.gdots button{width:8px;height:8px;border-radius:4px;border:0;padding:0;background:rgba(255,255,255,.45);transition:width .2s,background .2s}
+.gdots button.on{width:20px;background:#fff}
+.sheet .gal+.wrap{margin-top:0}
+.band .wrap{gap:10px}
+.soc{margin-left:auto;display:flex;gap:6px}
+.soc a{display:flex;align-items:center;gap:5px;height:34px;padding:0 11px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:12px;font-weight:700;text-decoration:none}
+.soc a svg{width:16px;height:16px;color:var(--accent-ink)}
+.soc a:active{background:var(--surface-2)}
+@media (max-width:360px){.soc a{padding:0 9px;font-size:0;gap:0}.soc a svg{width:18px;height:18px}}
+
+#splash{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .45s ease,visibility .45s}
+#splash img{width:min(62vw,240px);height:auto;animation:spPop .7s cubic-bezier(.2,.8,.2,1) both}
+.spbar{width:min(40vw,150px);height:3px;border-radius:2px;background:#2A2525;overflow:hidden}
+.spbar i{display:block;height:100%;width:40%;border-radius:2px;background:var(--accent);animation:spLoad 1s ease-in-out infinite}
+#splash.out{opacity:0;visibility:hidden}
+@keyframes spPop{from{opacity:0;transform:scale(.92)}}
+@keyframes spLoad{0%{transform:translateX(-100%)}100%{transform:translateX(250%)}}
+@media (prefers-reduced-motion:reduce){#splash img,.spbar i{animation:none}}
+
+.tcard{margin-top:6px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 14px 14px;display:flex;flex-direction:column;gap:12px;text-align:center}
+.tcard h1{font-size:28px;font-weight:800;line-height:1.1}
+.tcard>p{margin:-6px 0 2px;color:var(--muted);font-size:13.5px}
+.tcard .tseg{background:var(--surface-2);text-align:left}
+.tcard .tprog{margin-top:0;text-align:left}
+.gbanner{align-items:center;padding:11px 13px;font-size:12.5px}
+.gbanner b{display:inline;font-size:12.5px}
+#v-tutorial .vacc{margin-top:12px}
+#v-tutorial .vnote{margin:16px 0 0}
+.btn.off{background:var(--surface-2);border-color:var(--line);color:#7d7472;cursor:not-allowed}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+ <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+ <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></symbol>
+ <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.5V14M12 17.5v.5"/></symbol>
+ <symbol id="i-heli" viewBox="0 0 24 24"><path d="M3 5h18M12 5v3"/><path d="M5 12a5 4 0 0 1 10 0v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M15 12h6M8 19h6"/></symbol>
+ <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12h3l2-6 3 12 3-9 2 3h5"/></symbol>
+ <symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"/></symbol>
+ <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0"/><path d="m12 16 4-5"/><circle cx="12" cy="16" r="1.5"/></symbol>
+ <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+ <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+ <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+ <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17.5v.5"/></symbol>
+ <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></symbol>
+ <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8a3 3 0 0 1 6 0"/></symbol>
+ <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></symbol>
+</svg>
+
+<div id="splash" aria-hidden="true"><img src="logo.png" alt=""><span class="spbar"><i></i></span></div>
+<header class="band"><div class="wrap"><img src="logo.png" alt="RGR Ren's Garage"><nav class="soc" aria-label="Sosial media">
+  <a href="https://www.instagram.com/rgr_rensgarage" target="_blank" rel="noopener" id="lnkIG"><svg class="i"><use href="#i-cam"/></svg>Instagram</a>
+  <a href="https://www.tiktok.com/@rensgarage" target="_blank" rel="noopener" id="lnkTT"><svg class="i"><use href="#i-video"/></svg>TikTok</a>
+</nav></div></header>
+
+<!-- HOME -->
+<section class="view wrap" id="v-home">
+  <div class="hero hero2">
+    <h1>Motor kamu apa?</h1>
+    <p class="lead">Ketik nama motor, kami carikan modul yang cocok.</p>
+    <div class="marq" aria-label="Fitur: Helikopter Idle, Timing Kuda, Backfire, Pit Limiter, Launch Control"><div class="mtrack" aria-hidden="true"><span>Helikopter Idle</span><i></i><span>Timing Kuda</span><i></i><span>Backfire</span><i></i><span>Pit Limiter</span><i></i><span>Launch Control</span><i></i><span>Helikopter Idle</span><i></i><span>Timing Kuda</span><i></i><span>Backfire</span><i></i><span>Pit Limiter</span><i></i><span>Launch Control</span><i></i></div></div>
+    <div class="sglow"><label class="sbar"><svg class="i"><use href="#i-search"/></svg>
+      <input id="q" type="search" placeholder="Contoh: Vario 150, Satria FU 2012" autocomplete="off" enterkeyhint="search" aria-label="Cari motor">
+      <button class="clr" id="clr" type="button" aria-label="Hapus" hidden><svg class="i" style="width:14px;height:14px"><use href="#i-x"/></svg></button>
+    </label></div>
+  </div>
+  <div class="res" id="res" aria-live="polite"></div>
+
+  <div id="hmore"><div id="pop" hidden></div><button id="unk" type="button" hidden></button><a id="qaWa" hidden></a>
+    <div class="hs"><div class="hsh"><h2>Produk Rapid Fire</h2><a href="#katalog">Lihat semua</a></div>
+      <div class="hscroll" id="hprod"></div></div>
+
+    <div class="hs"><div class="hsh"><h2>Sering ditanya</h2></div>
+      <div class="list faq">
+        <details><summary>Apakah aman untuk ECU?<svg class="i"><use href="#i-down"/></svg></summary><p>Aman. Modul hanya bekerja di jalur pengapian dan tidak disambung ke ECU maupun sistem bahan bakar, jadi pembacaan sensor dan suplai bensin tetap normal.</p></details>
+        <details><summary>Bisa merusak mesin atau stang seher?<svg class="i"><use href="#i-down"/></svg></summary><p>Tidak, selama dipakai wajar. Yang diubah hanya pola pengapian untuk menghasilkan efek suara, sedangkan komponen mekanis seperti piston dan stang seher tidak disentuh.</p></details>
+        <details><summary>Performa mesin jadi turun?<svg class="i"><use href="#i-down"/></svg></summary><p>Tidak. Modul hanya bekerja saat kamu menyalakannya, lewat saklar atau dengan menarik rem. Saat modul mati, motor berjalan normal seperti standar.</p></details>
+        <details><summary>Apa ada efek samping?<svg class="i"><use href="#i-down"/></svg></summary><p>Dalam pemakaian wajar, tidak ada efek samping ke mesin. Modul hanya mengubah pola pengapian dan tidak menyentuh ECU, sistem bahan bakar, maupun komponen mesin, jadi performa harian tetap normal. Yang perlu diperhatikan hanya cara pakainya: efek suaranya cukup keras, jadi gunakan dengan bijak di jalan umum dan area permukiman. Hindari juga menyalakan efek terus-menerus selama berjam-jam atau menahan gas di RPM tinggi terlalu lama. Beri jeda supaya mesin dan knalpot tidak terlalu panas.</p></details>
+        <details><summary>Ada mode apa saja?<svg class="i"><use href="#i-down"/></svg></summary><p>Ada 2 mode suara idle: <b>Timing Kuda</b> (suara mesin seperti derap kuda) dan <b>Helikopter</b> (suara idle putus-putus khas helikopter). Backfire dan launch control bukan mode terpisah, keduanya muncul sesuai cara kamu memakai motor.</p></details>
+        <details><summary>Bagaimana cara ganti mode?<svg class="i"><use href="#i-down"/></svg></summary><p>Putar knob yang ada di modul. Setelan <b>lambat</b> menghasilkan suara <b>Timing Kuda</b>, setelan <b>cepat</b> menghasilkan suara <b>Helikopter</b>. Tidak perlu bongkar atau sambung ulang kabel.</p></details>
+        <details><summary>Bagaimana cara menyalakan dan mematikan modul?<svg class="i"><use href="#i-down"/></svg></summary><p>Ada 2 cara. <b>Lewat saklar:</b> tekan untuk ON, tekan lagi untuk OFF. <b>Lewat switch rem:</b> modul menyala saat rem ditarik dan mati saat rem dilepas.</p></details>
+        <details><summary>Kapan efek backfire muncul?<svg class="i"><use href="#i-down"/></svg></summary><p>Saat mode Timing Kuda atau Helikopter aktif dan mesin mencapai RPM tertentu, baik ketika gas dibuka maupun saat gas dilepas. Jadi letupannya mengikuti permainan gasmu.</p></details>
+        <details><summary>Backfire belum keluar, bagaimana?<svg class="i"><use href="#i-down"/></svg></summary><p>Biasanya backfire langsung aktif setelah modul terpasang. Kalau belum keluar, atur <b>setelan angin di throttle body</b> sampai menemukan setelan yang pas, karena backfire butuh campuran udara yang tepat. Butuh dipandu? <a href="https://wa.me/6289604026713?text=Halo%20Rens%20Garage%2C%20backfire%20di%20motor%20saya%20belum%20keluar.%20Motor%20saya%3A%20" target="_blank" rel="noopener">Chat WhatsApp</a>.</p></details>
+        <details><summary>Bagaimana cara memakai launch control?<svg class="i"><use href="#i-down"/></svg></summary><p>Modul tersambung ke switch rem, jadi modul menyala setiap rem ditarik dan mati saat rem dilepas. Caranya: dalam posisi berhenti, tarik rem sambil buka gas, maka akan keluar efek seperti launch control pada motor balap.</p></details>
+        <details><summary>Susah tidak pasangnya?<svg class="i"><use href="#i-down"/></svg></summary><p>Tidak. Hanya ada 3 kabel: ke pulser atau coil, ke saklar dan switch rem, dan ke ground. Karena tidak perlu bongkar mesin, bisa dikerjakan sendiri dengan alat dasar. Ikuti <a href="#tutorial">video tutorial</a>.</p></details>
+        <details><summary>Bagaimana tahu modul yang cocok untuk motor saya?<svg class="i"><use href="#i-down"/></svg></summary><p>Ketik nama motor di kolom pencarian di atas. Kecocokan ditentukan oleh sistem bahan bakar (karbu atau injeksi) dan jumlah silinder, jadi rekomendasinya disesuaikan dengan data motormu.</p></details>
+        <details><summary>Kalau gagal pasang bagaimana?<svg class="i"><use href="#i-down"/></svg></summary><p>Setiap pembelian dapat konsultasi gratis via WhatsApp. Kirim foto atau video sambunganmu, kami bantu cek titik yang salah sampai modul berhasil jalan.</p></details>
+        <details><summary>Apa bedanya V1 dan V2?<svg class="i"><use href="#i-down"/></svg></summary><p>V2 adalah limited edition yang disetel lewat remote: ada 10 mode idle, tempo idle bisa dipercepat atau diperlambat, dan tidak perlu disambung ke saklar maupun switch rem. V2 sudah tidak diproduksi dan stoknya sudah habis, jadi saat ini yang tersedia adalah seri V1.</p></details>
+        <details><summary>Belinya di mana?<svg class="i"><use href="#i-down"/></svg></summary><p>Lewat Shopee, TikTok, atau langsung via WhatsApp. Di Shopee dan TikTok transaksimu dilindungi platform, sedangkan lewat WhatsApp kamu bisa sekalian konsultasi soal motormu.</p></details>
+      </div></div>
+  </div>
+</section>
+
+<!-- TUTORIAL -->
+<section class="view wrap" id="v-tutorial" hidden>
+  <div class="tcard">
+    <h1>Cara pasang</h1>
+    <p>Pilih modul, lalu ikuti video tiap step.</p>
+    <div class="vpick" id="vpick"></div>
+    <div id="tprogbox"></div>
+  </div>
+  <div id="tbox"></div>
+  <p class="vnote">Punya V2 atau V1 2 Silinder? <a id="waGuide" target="_blank" rel="noopener">Minta panduan via WA</a></p>
+</section>
+
+<!-- KATALOG -->
+<section class="view wrap" id="v-katalog" hidden>
+  <div class="ptitle"><h1>Katalog</h1><p>Modul pengapian Rapid Fire untuk motor kamu.</p></div>
+  <div class="chips2" id="filters"></div>
+  <div class="grid" id="grid"></div>
+  <footer>Belanja juga di <a href="https://shopee.co.id/rensgarage" target="_blank" rel="noopener">shopee.co.id/rensgarage</a><br>WhatsApp <span id="waText"></span></footer>
+</section>
+
+<nav class="nav" aria-label="Menu">
+  <a class="nv" href="#home" data-v="home"><svg class="i"><use href="#i-home"/></svg>Home</a>
+  <a class="nv" href="#tutorial" data-v="tutorial"><svg class="i"><use href="#i-tool"/></svg>Tutorial</a>
+  <a class="nv" href="#katalog" data-v="katalog"><svg class="i"><use href="#i-grid"/></svg>Katalog</a>
+</nav>
+<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a>
+
+<div class="sheet-bg" id="sheetBg" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sTitle" hidden></div>
+
+<script>
+// Nomor WA dari label modul (+62 896-0402-6713)
+const WA = "6289604026713";
+const SHOPEE = "https://shopee.co.id/rensgarage";
+const TIKTOK = "https://www.tiktok.com/@rensgarage";
+const fmt = n => "Rp" + n.toLocaleString("id-ID");
+const wa = msg => "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+const $ = id => document.getElementById(id);
+const ic = n => `<svg class="i"><use href="#${n}"/></svg>`;
+const RM = () => matchMedia("(prefers-reduced-motion:reduce)").matches;
+const NOW = new Date().getFullYear();
+const PHOTO = {"v2a": "v2-3.webp", "v2b": "v2-2.webp", "v2c": "v2-1.webp", "vespa": "v1-vespa.webp", "inj": "v1-injeksi.webp", "karbu": "v1-karbu.webp"};
+const IMGP = {"v1-karbu":[PHOTO.karbu],"v1-injeksi":[PHOTO.inj],"v1-vespa":[PHOTO.vespa],"v2-karbu":[PHOTO.v2c,PHOTO.v2b,PHOTO.v2a],"v2-injeksi":[PHOTO.v2c,PHOTO.v2b,PHOTO.v2a]};
+const TMAP = {"v1-karbu":"karbu","v1-injeksi":"injeksi","v1-vespa":"injeksi"};
+
+const F1 = ["Helikopter Idle Manual","Timing Kuda","Backfire","Pit Limiter","Launch Control"];
+const F2 = ["10 mode idle","Setting via remote","Tempo idle bisa diatur","Tanpa saklar & switch rem","Tanpa aplikasi","Jangkauan remote 15 m"];
+const PK1 = "1 modul Rapid Fire, kabel, saklar ON/OFF, stiker RGR exclusive";
+const PK2 = "1 modul Rapid Fire V2, remote RF wireless, kabel quick connect";
+const P = [
+ {id:"v1-karbu",shp:"https://shopee.co.id/RAPID-FIRE-V1-NON-ECU-KARBU-HELIKOPTER-IDLE-VERSI-MANUAL-i.340923982.27527084145?extraParams=%7B%22display_model_id%22%3A206076281517%2C%22model_selection_logic%22%3A3%7D&image_ids=id-11134207-7rbka-m6jpll97o9rwca",ttk:"https://vt.tokopedia.com/t/ZS9fjoCKr3GoL-WIzI9/",pk:PK1,how:"Jalur koil, tanpa bongkar mesin",seri:"V1",name:"Rapid Fire V1",var:"Karbu",price:245000,fit:"Semua motor karburator 1 silinder",feat:F1},
+ {id:"v1-injeksi",shp:"https://shopee.co.id/RAPID-FIRE-V1-INJEKSI-UNIVERSAL-HELIKOPTER-IDLE-VERSI-MANUAL-i.340923982.43300232506?extraParams=%7B%22display_model_id%22%3A243403771304%2C%22model_selection_logic%22%3A3%7D&image_ids=id-11134207-7rbk1-m9jjx0twqrlf47",ttk:"https://vt.tokopedia.com/t/ZS9fjoE92V6ng-X8Xn2/",pk:PK1,how:"Jalur koil, tanpa bongkar mesin",seri:"V1",name:"Rapid Fire V1",var:"Injeksi",price:295000,was:393000,tag:"-25%",fit:"Semua motor injeksi 1 silinder",feat:F1},
+ {id:"v1-vespa",shp:"https://shopee.co.id/RAPID-FIRE-V1-VESPA-MATIC-HELIKOPTER-IDLE-VERSI-MANUAL-i.340923982.42660792390?extraParams=%7B%22display_model_id%22%3A305906916235%2C%22model_selection_logic%22%3A3%7D&image_ids=id-11134207-7ra0h-mcrvvur4oorndf",ttk:"https://vt.tokopedia.com/t/ZS9f61efP1Caw-4KTKQ/",pk:PK1,how:"Jalur koil, tanpa bongkar mesin",seri:"V1",name:"Rapid Fire V1",var:"Vespa",price:395000,fit:"Semua Vespa matic",feat:F1},
+ {id:"v1-2silinder",soon:true,pk:PK1,how:"Jalur koil, tanpa bongkar mesin",seri:"V1",name:"Rapid Fire V1",var:"2 Silinder",price:null,fit:"Semua motor 2 silinder, kecuali CBR250RR",feat:F1},
+ {id:"v2-karbu",pk:PK2,how:"Tanpa saklar & switch rem, socket quick connect",seri:"V2",name:"Rapid Fire V2",var:"Karbu",disc:true,fit:"Semua motor karburator 1 silinder",feat:F2},
+ {id:"v2-injeksi",pk:PK2,how:"Tanpa saklar & switch rem, socket quick connect",seri:"V2",name:"Rapid Fire V2",var:"Injeksi",disc:true,fit:"Semua motor injeksi 1 silinder",feat:F2},
+];
+
+// Aturan rekomendasi per sistem pengapian (urutan pertama = paling cocok)
+const REC = { fi:["v1-injeksi","v2-injeksi"], k:["v1-karbu","v2-karbu"], vespa:["v1-vespa"], "2c":["v1-2silinder"], "2t":[], "2cx":[], "4c":[], x:[] };
+const FUEL = { fi:"Injeksi", k:"Karburator", "2t":"2-tak", "2c":"2 silinder", "2cx":"2 silinder", "4c":"4 silinder", x:"Belum didukung", vespa:"Injeksi" };
+
+// Database motor: [merek, model, tahun awal, tahun akhir (null = sekarang), bahan bakar fi|k|2t|2c, jenis]
+const M = [
+ // HONDA
+ ["Honda","Legenda",2000,2004,"k","Bebek"],["Honda","Supra X 100",2000,2004,"k","Bebek"],["Honda","Supra Fit",2003,2006,"k","Bebek"],
+ ["Honda","Kirana",2003,2005,"k","Bebek"],["Honda","Karisma 125",2003,2008,"k","Bebek"],["Honda","Win 100",2000,2005,"k","Sport"],
+ ["Honda","Supra X 125",2005,2013,"k","Bebek"],["Honda","Supra X 125 PGM-FI",2007,null,"fi","Bebek"],["Honda","Supra GTR 150",2016,null,"fi","Bebek"],
+ ["Honda","Revo 110",2007,2014,"k","Bebek"],["Honda","Absolute Revo",2010,2014,"k","Bebek"],["Honda","Revo FI",2014,null,"fi","Bebek"],
+ ["Honda","Blade 110",2008,2013,"k","Bebek"],["Honda","Blade 125 FI",2014,2018,"fi","Bebek"],["Honda","CS1",2008,2012,"k","Bebek"],
+ ["Honda","Sonic 150R",2015,2023,"fi","Bebek"],
+ ["Honda","Vario 110 karbu",2006,2014,"k","Matic"],["Honda","Vario 110 FI / eSP",2014,null,"fi","Matic"],["Honda","Vario Techno 125",2012,2018,"fi","Matic"],
+ ["Honda","Vario 125",2018,null,"fi","Matic"],["Honda","Vario 150",2015,2022,"fi","Matic"],["Honda","Vario 160",2022,null,"fi","Matic"],
+ ["Honda","Beat karbu",2008,2012,"k","Matic"],["Honda","Beat FI / eSP",2012,null,"fi","Matic"],["Honda","Beat Street",2016,null,"fi","Matic"],
+ ["Honda","Scoopy karbu",2010,2013,"k","Matic"],["Honda","Scoopy FI",2013,null,"fi","Matic"],["Honda","Spacy karbu",2011,2013,"k","Matic"],["Honda","Spacy FI",2013,2017,"fi","Matic"],
+ ["Honda","Genio",2019,null,"fi","Matic"],["Honda","PCX 150",2014,2020,"fi","Matic"],["Honda","PCX 160",2021,null,"fi","Matic"],
+ ["Honda","ADV 150",2019,2022,"fi","Matic"],["Honda","ADV 160",2022,null,"fi","Matic"],["Honda","Stylo 160",2024,null,"fi","Matic"],
+ ["Honda","GL Max / GL Pro",2000,2005,"k","Sport"],["Honda","Mega Pro karbu",2006,2014,"k","Sport"],["Honda","New Mega Pro FI",2014,2018,"fi","Sport"],
+ ["Honda","Tiger / Tiger Revo",2000,2016,"k","Sport"],["Honda","Verza 150",2013,2018,"k","Sport"],["Honda","CB150 Verza",2018,null,"fi","Sport"],
+ ["Honda","CB150R StreetFire",2012,null,"fi","Sport"],["Honda","CBR150R",2013,null,"fi","Sport"],["Honda","CRF150L",2017,null,"fi","Trail"],
+ ["Honda","CB150X",2021,null,"fi","Sport"],["Honda","CBR250RR",2016,null,"2cx","Sport"],
+ // YAMAHA
+ ["Yamaha","Jupiter",2000,2005,"k","Bebek"],["Yamaha","Jupiter Z karbu",2003,2014,"k","Bebek"],["Yamaha","Jupiter Z1",2012,2020,"fi","Bebek"],
+ ["Yamaha","Jupiter MX 135 karbu",2005,2013,"k","Bebek"],["Yamaha","Jupiter MX King 150",2015,null,"fi","Bebek"],["Yamaha","Jupiter MX 135 FI",2014,2018,"fi","Bebek"],
+ ["Yamaha","Vega R",2003,2013,"k","Bebek"],["Yamaha","Vega ZR",2009,2014,"k","Bebek"],["Yamaha","Vega Force",2015,null,"fi","Bebek"],
+ ["Yamaha","F1ZR",2000,2004,"2t","Bebek"],["Yamaha","RX-King",2000,2008,"2t","Sport"],["Yamaha","125Z",2002,2005,"2t","Bebek"],
+ ["Yamaha","Mio karbu",2003,2012,"k","Matic"],["Yamaha","Mio Soul karbu",2008,2012,"k","Matic"],["Yamaha","Mio J",2012,2015,"fi","Matic"],
+ ["Yamaha","Mio GT",2013,2015,"fi","Matic"],["Yamaha","Soul GT",2013,2017,"fi","Matic"],["Yamaha","Mio M3 125",2014,null,"fi","Matic"],
+ ["Yamaha","Mio Z / Mio S",2016,null,"fi","Matic"],["Yamaha","Xeon karbu",2010,2012,"k","Matic"],["Yamaha","Xeon RC / GT125",2013,2016,"fi","Matic"],
+ ["Yamaha","Fino karbu",2011,2013,"k","Matic"],["Yamaha","Fino FI",2013,null,"fi","Matic"],["Yamaha","X-Ride karbu",2013,2014,"k","Matic"],
+ ["Yamaha","X-Ride FI",2014,null,"fi","Matic"],["Yamaha","NMAX 155",2015,null,"fi","Matic"],["Yamaha","Aerox 155",2016,null,"fi","Matic"],
+ ["Yamaha","Lexi",2018,null,"fi","Matic"],["Yamaha","FreeGo",2019,null,"fi","Matic"],["Yamaha","Gear 125",2020,null,"fi","Matic"],
+ ["Yamaha","Fazzio",2021,null,"fi","Matic"],["Yamaha","Grand Filano",2022,null,"fi","Matic"],["Yamaha","XMAX 250",2017,null,"fi","Matic"],
+ ["Yamaha","Scorpio Z",2002,2016,"k","Sport"],["Yamaha","Byson karbu",2010,2014,"k","Sport"],["Yamaha","Byson FI",2015,2016,"fi","Sport"],
+ ["Yamaha","Vixion",2007,2014,"fi","Sport"],["Yamaha","New Vixion / Vixion R",2015,null,"fi","Sport"],["Yamaha","R15",2014,null,"fi","Sport"],
+ ["Yamaha","MT-15",2019,null,"fi","Sport"],["Yamaha","XSR 155",2019,null,"fi","Sport"],["Yamaha","WR155R",2020,null,"fi","Trail"],
+ ["Yamaha","R25 / MT-25",2014,null,"2c","Sport"],
+ // SUZUKI
+ ["Suzuki","Shogun 110",2000,2006,"k","Bebek"],["Suzuki","Shogun 125",2004,2014,"k","Bebek"],["Suzuki","Smash",2002,2014,"k","Bebek"],
+ ["Suzuki","Arashi 125",2005,2008,"k","Bebek"],["Suzuki","Titan 115",2010,2012,"k","Bebek"],["Suzuki","Axelo 125",2012,2016,"k","Bebek"],
+ ["Suzuki","Satria 120 (Hiu)",2000,2004,"2t","Bebek"],["Suzuki","Satria FU 150 karbu",2004,2016,"k","Bebek"],["Suzuki","Satria F150 FI",2016,null,"fi","Bebek"],
+ ["Suzuki","Spin 125",2007,2013,"k","Matic"],["Suzuki","Skywave 125",2008,2013,"k","Matic"],["Suzuki","Skydrive 125",2009,2013,"k","Matic"],
+ ["Suzuki","Hayate 125",2011,2014,"k","Matic"],["Suzuki","Nex karbu",2011,2014,"k","Matic"],["Suzuki","Nex FI / Nex II",2014,null,"fi","Matic"],
+ ["Suzuki","Address FI",2014,null,"fi","Matic"],
+ ["Suzuki","Thunder 125",2004,2016,"k","Sport"],["Suzuki","Thunder 250",2000,2006,"k","Sport"],
+ ["Suzuki","GSX-R150",2017,null,"fi","Sport"],["Suzuki","GSX-S150",2017,null,"fi","Sport"],["Suzuki","Inazuma 250",2013,2018,"2c","Sport"],
+ // KAWASAKI NINJA
+ ["Kawasaki","Ninja 150 R",2005,2015,"2t","Sport"],["Kawasaki","Ninja 150 RR",2000,2015,"2t","Sport"],
+ ["Kawasaki","Ninja 250 karbu",2008,2012,"2c","Sport"],["Kawasaki","Ninja 250 FI",2012,2017,"2c","Sport"],["Kawasaki","New Ninja 250",2018,null,"2c","Sport"],
+ ["Kawasaki","Ninja 250 SL",2014,2017,"fi","Sport"],["Kawasaki","Ninja RR Mono 250",2015,2018,"x","Sport"],
+ ["Kawasaki","Ninja 300",2013,2017,"2c","Sport"],["Kawasaki","Ninja 400",2018,null,"2c","Sport"],["Kawasaki","Ninja 650",2012,null,"2c","Sport"],
+ ["Kawasaki","Ninja ZX-25R",2020,null,"4c","Sport"],["Kawasaki","Ninja ZX-6R",2013,null,"4c","Sport"],["Kawasaki","Ninja ZX-10R",2011,null,"4c","Sport"],
+ // BENELLI
+ ["Benelli","TNT 135",2017,null,"fi","Sport"],["Benelli","TNT 25",2015,2019,"fi","Sport"],["Benelli","TNT 249S",2018,null,"2c","Sport"],
+ ["Benelli","Motobi 152",2017,null,"fi","Sport"],["Benelli","Patagonian Eagle 250",2017,null,"2c","Cruiser"],
+ ["Benelli","Leoncino 250",2019,null,"fi","Sport"],["Benelli","Leoncino 500",2018,null,"2c","Sport"],
+ ["Benelli","TRK 251",2019,null,"fi","Adventure"],["Benelli","TRK 502",2018,null,"2c","Adventure"],["Benelli","302R / 302S",2017,null,"2c","Sport"],
+ ["Benelli","Imperiale 400",2019,null,"fi","Classic"],["Benelli","Panarea 125",2019,null,"fi","Matic"],["Benelli","Zafferano 250",2019,null,"fi","Matic"],
+ // VESPA (produk V1 Vespa)
+ ["Vespa","Primavera",2014,null,"vespa","Matic"],["Vespa","Sprint",2014,null,"vespa","Matic"],["Vespa","LX 125/150",2012,null,"vespa","Matic"],["Vespa","GTS",2013,null,"vespa","Matic"],
+].map((r,i)=>({i,brand:r[0],model:r[1],y1:r[2],y2:r[3],fuel:r[4],kind:r[5],name:r[0]+" "+r[1]}));
+
+
+const recKey = m => m.fuel;
+const years = m => `${m.y1}–${m.y2 ?? "sekarang"}`;
+const fuelTag = m => m.fuel==="k" ? `<span class="tagf t-k">Karbu</span>` : (m.fuel==="fi"||m.fuel==="vespa") ? `<span class="tagf t-fi">Injeksi</span>` : `<span class="tagf t-x">${FUEL[m.fuel]}</span>`;
+const norm = s => s.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+const esc = s => s.replace(/[<>&"]/g,"");
+
+/* ===== HOME: pencarian ===== */
+function search(raw){
+  let q = norm(raw); if(!q) return [];
+  const yr = (q.match(/\b(19|20)\d{2}\b/)||[])[0];
+  if(yr) q = q.replace(yr,"").trim();
+  const toks = q.split(" ").filter(Boolean), first = toks[0]||"";
+  return M.filter(m=>{
+    const hay = norm(m.name+" "+m.kind+" "+(m.fuel==="k"?"karbu karburator":"injeksi fi"));
+    return toks.every(t=>hay.includes(t)||hay.replace(/ /g,"").includes(t)) && (!yr || (m.y1<=+yr && (m.y2??NOW)>=+yr));
+  }).sort((a,b)=>(norm(b.model).startsWith(first))-(norm(a.model).startsWith(first)));
+}
+const thumb = p => IMGP[p.id] ? `<span class="thumb ph1"><img src="${IMGP[p.id][0]}" alt=""></span>` : `<span class="thumb">${p.seri}</span>`;
+const priceTxt = p => p.disc ? "Sold out" : p.soon ? "Segera" : p.price ? fmt(p.price) : "Tanya harga";
+function recHTML(m){
+  const ids = REC[recKey(m)];
+  if(!ids.length){
+    const why = m.fuel==="2t" ? "Motor 2-tak belum ada modul resminya." : m.fuel==="4c" ? "Modul kami untuk mesin 1 dan 2 silinder." : m.fuel==="x" ? "Modul kami belum bisa dipakai di motor ini." : "Rapid Fire V1 2 Silinder tidak bisa dipakai di CBR250RR.";
+    return `<div class="rec"><span class="unsup">${why} <a href="${wa(`Halo Rens Garage, apakah ada modul untuk ${m.name}?`)}" target="_blank" rel="noopener">Tanya via WA</a></span></div>`;
+  }
+  return `<div class="rec"><span class="lab">Rekomendasi modul</span>${ids.map((id,k)=>{const p=P.find(x=>x.id===id);
+    return `<button class="ritem${k===0?" best":""}${p.disc?" disc":""}" data-id="${id}">${thumb(p)}<span class="nm">${k===0?`<span class="best-tag">Paling cocok</span>`:""}<b>${p.name} ${p.var}</b><small>${p.disc?"Limited edition · sold out":p.soon?"Belum tersedia":p.fit}</small></span><span class="pr">${priceTxt(p)}</span></button>`}).join("")}</div>`;
+}
+const motorCard = (m,open)=>`<div class="mres" data-i="${m.i}" data-open="${open}"><button class="top" aria-expanded="${open}"><span class="nm"><b>${m.name}</b><small>${years(m)} · ${m.kind}</small></span>${fuelTag(m)}${ic("i-down")}</button>${open?recHTML(m):""}</div>`;
+function renderRes(){
+  const v=$("q").value; $("clr").hidden=!v; 
+  if(!v.trim()){ $("res").innerHTML=""; return; }
+  const r=search(v);
+  if(!r.length){ wz={}; $("res").innerHTML=`<div class="nores">Motor "${esc(v)}" belum ada di daftar kami. Jawab 2 pertanyaan ini, kami carikan modulnya.</div><div id="wz"></div>`; renderWz(); return; }
+  $("res").innerHTML=`<span class="rcount">${r.length} motor ditemukan${r.length>8?", menampilkan 8 teratas":""}</span>`+r.slice(0,8).map((m,k)=>motorCard(m,k===0)).join("");
+}
+let wz={};
+const FTXT={k:"karbu",fi:"injeksi"};
+function renderWz(){
+  const el=$("wz"); if(!el) return;
+  const waLink=`<a class="lnk" href="${wa("Halo Rens Garage, saya kurang tahu tipe motor saya. Motor saya: ")}" target="_blank" rel="noopener">Masih bingung? Tanya via WA</a>`;
+  if(!wz.f){ el.innerHTML=`<div class="wz"><span class="steplab">Pertanyaan 1 dari 2</span><b>Motor kamu karbu atau injeksi?</b><div class="opts">${[["k","Karbu"],["fi","Injeksi"],["vespa","Vespa"]].map(([k,t])=>`<button type="button" data-f="${k}">${t}</button>`).join("")}</div><details><summary>Cara cek karbu atau injeksi</summary><p>Injeksi: ada lampu indikator mesin (FI / check engine) di speedometer, biasanya tanpa tuas cuk. Karbu: ada tuas cuk (choke) di setang atau dekat karburator.</p></details>${waLink}</div>`; return; }
+  if(wz.f!=="vespa" && !wz.c){ el.innerHTML=`<div class="wz"><span class="steplab">Pertanyaan 2 dari 2</span><b>Mesinnya berapa silinder?</b><div class="opts two"><button type="button" data-c="1">1 silinder</button><button type="button" data-c="2">2 silinder</button></div><p class="wzn">Motor harian (bebek, matic, sport 150cc) hampir semuanya 1 silinder. 2 silinder biasanya motor 250cc ke atas.</p><button type="button" class="lnk" data-a="back">Kembali</button></div>`; return; }
+  const key = wz.c==="2" ? "2c" : wz.f;
+  const label = wz.f==="vespa" ? "Vespa matic" : `motor ${FTXT[wz.f]} ${wz.c} silinder`;
+  el.innerHTML=`<div class="wz wzr"><span class="steplab">Hasil</span><b>Rekomendasi untuk ${label}</b>${recHTML({fuel:key,name:label})}<button type="button" class="lnk" data-a="reset">Ulangi pertanyaan</button></div>`;
+}
+const srchState=()=>document.body.classList.toggle("srch",!!$("q").value.trim());
+$("q").addEventListener("input",()=>{renderRes();srchState()});
+$("q").addEventListener("focus",srchState);
+$("q").addEventListener("blur",()=>setTimeout(srchState,150));
+$("clr").onclick=()=>{$("q").value="";renderRes();$("q").focus();srchState()};
+["Vario 150","NMAX","Beat","Satria FU","Vixion"].forEach(t=>{const b=document.createElement("button");b.type="button";b.textContent=t;b.onclick=()=>{$("q").value=t;renderRes();srchState()};$("pop").appendChild(b)});
+$("unk").onclick=()=>{document.body.classList.add("srch");wz={};$("res").innerHTML=`<div id="wz"></div>`;renderWz()};
+$("res").onclick=e=>{
+  const r=e.target.closest(".ritem"); if(r) return location.hash="p-"+r.dataset.id;
+  const f=e.target.closest("[data-f]"); if(f){wz={f:f.dataset.f};return renderWz()}
+  const c=e.target.closest("[data-c]"); if(c){wz.c=c.dataset.c;return renderWz()}
+  if(e.target.closest("[data-a]")){wz={};return renderWz()}
+  const t=e.target.closest(".top"); if(t){const el=t.parentElement;el.outerHTML=motorCard(M[+el.dataset.i],el.dataset.open!=="true")}
+};
+
+/* ===== KATALOG ===== */
+let seri="Semua";
+const art = p => `<div class="art${IMGP[p.id]?" full":""}">${p.disc?`<span class="spill lim">Sold out</span>`:p.soon?`<span class="spill lim">Segera hadir</span>`:p.tag?`<span class="spill${p.tag.startsWith("-")?" off":""}">${p.tag}</span>`:""}${IMGP[p.id]?`<img src="${IMGP[p.id][0]}" alt="${p.name} ${p.var}" loading="lazy">`:`<div class="box"><b>${p.seri}</b></div><span class="ph">foto produk</span>`}</div>`;
+const priceHTML = p => p.disc ? `<div class="tbd">Limited edition · sold out</div>` : p.soon ? `<div class="tbd">Belum tersedia</div>` : !p.price ? `<div class="tbd">Tanya harga via WA</div>` : `<div class="price">${fmt(p.price)}${p.was?`<s>${fmt(p.was)}</s>`:""}</div>`;
+function renderKatalog(){
+  $("filters").innerHTML=["Semua","V1","V2"].map(s=>`<button class="chip" aria-pressed="${seri===s}" data-s="${s}">${s==="Semua"?s:"Seri "+s}<small>${P.filter(p=>s==="Semua"||p.seri===s).length}</small></button>`).join("");
+  $("grid").innerHTML=P.filter(p=>seri==="Semua"||p.seri===seri).map(p=>`<button class="card${p.disc?" disc":""}" data-id="${p.id}">${art(p)}<div class="body"><h3>${p.name}</h3><span class="vb">${p.var}</span>${priceHTML(p)}</div></button>`).join("");
+}
+$("filters").onclick=e=>{const b=e.target.closest("button");if(b){seri=b.dataset.s;renderKatalog()}};
+$("grid").onclick=e=>{const c=e.target.closest(".card");if(c)location.hash="p-"+c.dataset.id};
+
+/* ===== TUTORIAL: dropdown per step berisi video, terkunci berurutan ===== */
+// Isi link file video (.mp4) per step di sini. Kosong = tampil "video menyusul".
+const VIDEO = {
+  karbu:   ["","","","","","",""],
+  injeksi: ["","","","","","",""]
+};
+const UNBOX = ["Rekam unboxing","Mulai rekam video saat paket masih tersegel, lalu buka segelnya di depan kamera. Jangan hentikan rekaman.","rec","Saya sudah mulai merekam dan paket masih tersegel"];
+const AKI = ["Tes modul ke aki","Sambungkan 2 kabel modul ke aki: kabel positif ke kutub <b>+</b> dan kabel negatif ke kutub <b>−</b>, lalu pastikan modul menyala. Detail kabel yang dipakai menyusul.","warn","Modul sudah menyala dan rekaman belum saya hentikan"];
+const TUT = {
+ karbu:{name:"V1 Karbu",sub:"Non-ECU",steps:[UNBOX,AKI,
+  ["Persiapan","Matikan motor, putar kunci kontak ke OFF, lepas body bila perlu.","","Motor sudah mati dan kunci kontak OFF"],
+  ["Kabel hitam kecil ke kabel pulser","Sambung cabang ke kabel pulser motor, lalu bungkus isolasi.","","Kabel hitam kecil sudah tersambung dan diisolasi"],
+  ["Kabel hitam besar ke saklar dan switch rem","Satu kaki saklar ke modul, kaki lainnya ke switch rem.","","Saklar dan switch rem sudah tersambung"],
+  ["Kabel kuning ke ground","Baut ke rangka atau mesin sampai kencang.","","Kabel kuning sudah terbaut kencang"],
+  ["Tes hasilnya","Nyalakan motor, tekan saklar, dengarkan efeknya.","","Efek sudah keluar saat dites"]]},
+ injeksi:{name:"V1 Injeksi · Vespa",sub:"Universal",steps:[UNBOX,AKI,
+  ["Persiapan","Matikan motor, putar kunci kontak ke OFF, lepas body bila perlu.","","Motor sudah mati dan kunci kontak OFF"],
+  ["Kabel hitam 1 ke signal coil","Sambung ke terminal signal di coil pengapian.","","Kabel hitam 1 sudah tersambung ke signal coil"],
+  ["Kabel hitam 2 ke saklar dan switch rem","Satu kaki saklar ke modul, kaki lainnya ke switch rem.","","Saklar dan switch rem sudah tersambung"],
+  ["Kabel kuning ke ground","Baut ke rangka atau mesin sampai kencang.","","Kabel kuning sudah terbaut kencang"],
+  ["Tes hasilnya","Nyalakan motor, tekan saklar, dengarkan efeknya.","","Efek sudah keluar saat dites"]]}
+};
+// progres tersimpan di browser pembeli
+const PKEY="rg-tutorial-progress";
+let PROG={karbu:0,injeksi:0};
+try{const v=JSON.parse(localStorage.getItem(PKEY)||"{}");PROG={...PROG,...v}}catch(e){}
+const saveProg=()=>{try{localStorage.setItem(PKEY,JSON.stringify(PROG))}catch(e){}};
+let tk="karbu", openI=null;
+function setTut(k){ if(!TUT[k]) k="karbu"; tk=k; openI=null; renderTut(); }
+const NOTE={rec:`<div class="call tip">${ic("i-video")}<span><b>Wajib untuk garansi.</b> Rekaman ini harus berlanjut tanpa terpotong sampai Step 2 selesai.</span></div>`,
+ warn:`<div class="call warn">${ic("i-alert")}<span><b>Jangan sampai terbalik.</b> Kalau + dan − tertukar, modul langsung korsleting.</span></div><div class="call tip">${ic("i-video")}<span><b>Wajib untuk garansi.</b> Tes ini harus terekam dalam satu video yang sama dengan unboxing, tanpa terpotong.</span></div>`};
+function renderTut(){
+  const T=TUT[tk], n=T.steps.length, done=Math.min(PROG[tk]||0,n);
+  if(openI===null) openI = done<n ? done : -1;
+  const keys=Object.keys(TUT);
+  $("vpick").innerHTML=`<div class="tseg" role="tablist"><span class="tth" style="transform:translateX(${keys.indexOf(tk)*100}%)"></span>${keys.map(k=>`<button class="vcard" type="button" role="tab" aria-selected="${k===tk}" data-k="${k}"><b>${TUT[k].name}</b><small>${TUT[k].sub}</small></button>`).join("")}</div>`;
+  const pct=Math.round(done/n*100);
+  $("tprogbox").innerHTML=`<div class="tprog"><span class="pbar"><i style="width:${pct}%"></i></span><span>${done===n?"Semua step selesai":`${done} dari ${n} step selesai`}</span></div>`;
+  $("tbox").innerHTML=`<div class="gbanner">${ic("i-shield")}<span><b>Syarat garansi:</b> rekam 1 video tanpa terpotong dari paket tersegel sampai tes modul ke aki (Step 1–2).</span></div>
+  <div class="vacc">${T.steps.map(([t,d,note,conf],i)=>{
+    const st = i<done?"done":i===done?"cur":"lock", src=VIDEO[tk][i], isOpen=i===openI&&st!=="lock";
+    return `<div class="vst ${st}${isOpen?" open":""}" data-i="${i}">
+      <button class="vbar" type="button" aria-expanded="${isOpen}" ${st==="lock"?'aria-disabled="true"':""}><span class="vno">${st==="done"?ic("i-check"):st==="lock"?ic("i-lock"):""}Step ${i+1}</span><span class="vtt">${t}</span>${st==="lock"?"":ic("i-down")}</button>
+      <div class="vbd"><div><div class="vin">
+        ${src?`<video class="vplayer" src="${src}" controls playsinline preload="metadata"></video>`
+             :`<div class="vplayer vph"><span class="vplay">${ic("i-play")}</span><b>Video step ${i+1}</b><small>Segera hadir</small></div>`}
+        <p class="vdesc">${d}</p>
+        ${note?NOTE[note]:""}
+        ${st==="done"?`<div class="cdone">${ic("i-check")}${conf}</div>`
+          :`<label class="conf"><input type="checkbox" class="cbx"><span>${conf}</span></label>
+            ${i===1?`<a class="vnext wa" href="${wa("Halo Rens Garage, saya kirim video unboxing dan tes modul "+T.name+" untuk garansi. Nama: \nNo. pesanan: ")}" target="_blank" rel="noopener">${ic("i-video")}Kirim video garansi via WhatsApp</a>`:""}
+            <button class="vnext go" type="button" disabled>${i<n-1?`Lanjut ke step ${i+2}${ic("i-arrow")}`:`Selesai${ic("i-check")}`}</button>`}
+      </div></div></div>
+    </div>`}).join("")}</div>
+  ${done===n?`<div class="tfin">${ic("i-check")}<div><b>Pemasangan selesai</b>Modul ${T.name} siap dipakai. Ada kendala? <a href="${wa("Halo Rens Garage, saya butuh bantuan pemasangan "+T.name+". Kendala saya: ")}" target="_blank" rel="noopener">Chat WhatsApp</a></div></div>`:""}
+  ${done>0?`<button class="lnk treset" type="button">Ulangi dari Step 1</button>`:""}`;
+}
+$("vpick").onclick=e=>{const b=e.target.closest(".vcard");if(b){history.replaceState(null,"","#tutorial-"+b.dataset.k);setTut(b.dataset.k)}};
+$("tbox").addEventListener("change",e=>{const c=e.target.closest(".cbx");if(c)c.closest(".vin").querySelector(".go").disabled=!c.checked});
+$("tbox").onclick=e=>{
+  const b=e.target.closest(".vbar");
+  if(b){const v=b.closest(".vst"); if(v.classList.contains("lock")) return; const i=+v.dataset.i; openI = openI===i?-1:i; return renderTut();}
+  const g=e.target.closest(".go");
+  if(g&&!g.disabled){const i=+g.closest(".vst").dataset.i; PROG[tk]=Math.max(PROG[tk]||0,i+1); saveProg(); openI = i+1<TUT[tk].steps.length?i+1:-1; renderTut();
+    const t=$("tbox").querySelector(openI>=0?`.vst[data-i="${openI}"]`:".tfin"); if(t) setTimeout(()=>t.scrollIntoView({behavior:RM()?"auto":"smooth",block:"start"}),120); return;}
+  if(e.target.closest(".treset")){PROG[tk]=0; saveProg(); openI=null; renderTut();}
+};
+
+/* ===== DETAIL PRODUK ===== */
+function gallery(p){
+  const im=IMGP[p.id]; if(!im) return art(p);
+  const tag=p.disc?`<span class="spill lim">Sold out</span>`:p.tag?`<span class="spill${p.tag.startsWith("-")?" off":""}">${p.tag}</span>`:"";
+  return `<div class="gal">${tag}<div class="gtrack" id="gtrack">${im.map((s,i)=>`<img src="${s}" alt="${p.name} ${p.var} foto ${i+1}">`).join("")}</div>${im.length>1?`<div class="gdots" id="gdots">${im.map((_,i)=>`<button type="button" aria-label="Foto ${i+1}" data-g="${i}"${i?"":' class="on"'}></button>`).join("")}</div>`:""}</div>`;
+}
+function bindGallery(){
+  const t=$("gtrack"), d=$("gdots"); if(!t||!d) return;
+  t.addEventListener("scroll",()=>{const i=Math.round(t.scrollLeft/t.clientWidth);d.querySelectorAll("button").forEach((b,k)=>b.classList.toggle("on",k===i))},{passive:true});
+  d.onclick=e=>{const b=e.target.closest("button");if(b)t.scrollTo({left:+b.dataset.g*t.clientWidth,behavior:RM()?"auto":"smooth"})};
+}
+let view="home";
+function openSheet(id){
+  const p=P.find(x=>x.id===id); if(!p) return closeSheet();
+  const mv=$("q").value.trim();
+  const msg=p.disc?`Halo Rens Garage, apakah ${p.name} ${p.var} (limited edition) masih ada stok? Motor saya: ${mv}`:`Halo Rens Garage, saya mau pesan ${p.name} ${p.var}. Motor saya: ${mv}`;
+  const tk=TMAP[p.id];
+  $("sheet").innerHTML=`<span class="grab"></span><button class="sx" id="sx" aria-label="Tutup">${ic("i-x")}</button>${gallery(p)}
+  <div class="wrap sbd2">
+    <div class="shead"><div class="trow"><h2 id="sTitle">${p.name}</h2><span class="vbadge">${p.var}</span></div><span class="fitline">${ic("i-check")}${p.fit}</span>${priceHTML(p)}</div>
+    ${p.soon?`<div class="discnote"><b>Belum tersedia.</b> Modul ini sedang disiapkan, pantau Instagram atau TikTok kami untuk info rilisnya.</div>`:""}${p.disc?`<div class="discnote"><b>Limited edition, sudah tidak diproduksi.</b> Stok sudah habis.</div>`:""}
+    <div class="list sblock"><span class="lab2">Fitur</span><ul class="flist">${p.feat.map(f=>`<li>${ic("i-check")}${f}</li>`).join("")}</ul></div>
+    <dl class="list kv"><div><dt>Isi paket</dt><dd>${p.pk}</dd></div><div><dt>Pemasangan</dt><dd>${p.how}</dd></div></dl>
+    ${tk?`<a class="list golink" href="#tutorial-${tk}"><span class="gi">${ic("i-tool")}</span><span><b>Lihat cara pasang</b><small>Video tutorial per step</small></span>${ic("i-right")}</a>`
+       :`<a class="list golink" href="${wa(`Halo Rens Garage, saya minta panduan pemasangan ${p.name} ${p.var}.`)}" target="_blank" rel="noopener"><span class="gi">${ic("i-tool")}</span><span><b>Panduan pasang</b><small>Minta via WhatsApp</small></span>${ic("i-right")}</a>`}
+  </div>
+  ${p.disc||p.soon?`<div class="scta one"><button class="btn off" type="button" disabled>${p.disc?"Sold out":"Belum tersedia"}</button></div>`
+   :`<div class="scta"><a class="btn shp" href="${p.shp||SHOPEE}" target="_blank" rel="noopener">${ic("i-bag")}Shopee</a><a class="btn ttk" href="${p.ttk||TIKTOK}" target="_blank" rel="noopener">${ic("i-video")}TikTok</a><a class="btn wa" href="${wa(msg)}" target="_blank" rel="noopener">${ic("i-chat")}WhatsApp</a></div>`}`;
+  $("sheet").hidden=false;$("sheetBg").hidden=false;$("sheet").scrollTop=0;
+  bindGallery();
+  $("sx").onclick=closeSheet;$("sx").focus();
+}
+function closeSheet(){$("sheet").hidden=true;$("sheetBg").hidden=true;if(location.hash.startsWith("#p-"))history.replaceState(null,"","#"+view)}
+$("sheetBg").onclick=closeSheet;
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sheet").hidden)closeSheet()});
+
+/* ===== ROUTER ===== */
+const VIEWS=["home","tutorial","katalog"];
+function setView(v){
+  const changed = v!==view; view=v; document.body.dataset.view=v;
+  VIEWS.forEach(x=>$("v-"+x).hidden=x!==v);
+  document.querySelectorAll(".nv").forEach(a=>a.dataset.v===v?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  if(changed) scrollTo({top:0});
+}
+function route(){
+  const h=location.hash.slice(1);
+  if(h.startsWith("p-")) return openSheet(h.slice(2));
+  if(!$("sheet").hidden){$("sheet").hidden=true;$("sheetBg").hidden=true}
+  if(h.startsWith("tutorial-")){ setTut(h.slice(9)); return setView("tutorial"); }
+  setView(VIEWS.includes(h)?h:"home");
+}
+addEventListener("hashchange",route);
+
+$("fab").href=wa("Halo Rens Garage, saya mau tanya modul untuk motor saya: ");
+$("waGuide").href=wa("Halo Rens Garage, saya minta panduan pemasangan untuk modul saya: ");
+$("waText").textContent="+62 896-0402-6713";
+renderRes();
+$("hprod").innerHTML=P.map(p=>`<button class="hcard${p.disc?" disc":""}" data-id="${p.id}">${art(p)}<div class="body"><h3>${p.name}</h3><span class="vb">${p.var}</span>${priceHTML(p)}</div></button>`).join("");
+$("hprod").onclick=e=>{const c=e.target.closest(".hcard");if(c)location.hash="p-"+c.dataset.id};
+$("qaWa").href=wa("Halo Rens Garage, saya mau tanya modul untuk motor saya: ");
+renderKatalog(); setTut("karbu"); route();
+
+// layar loading logo RGR
+(function(){const sp=$("splash"),t0=Date.now();const hide=()=>setTimeout(()=>{sp.classList.add("out");setTimeout(()=>sp.remove(),500)},Math.max(0,1100-(Date.now()-t0)));
+ if(document.readyState==="complete")hide();else addEventListener("load",hide);setTimeout(()=>sp&&sp.classList.add("out"),4000);})();
+</script>
+
+</body>
+</html>
